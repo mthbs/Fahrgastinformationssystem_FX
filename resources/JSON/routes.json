@@ -1,0 +1,112 @@
+[
+{
+  "route_id" : "12000501",
+  "ziel" : "Frankfurt (Main) Hbf",
+  "route" : [""]
+},
+{
+  "route_id" : "12000502",
+  "ziel" : "Bebra",
+  "route" : ["Hanau Hbf","Bad-Soden-Salmünster","Schlüchtern","Fulda","Hünfeld","Bad Hersfeld"]
+},
+{
+  "route_id" : "12005001",
+  "ziel" : "Frankfurt (Main) Hbf",
+  "route" : [""]
+},
+{
+  "route_id" : "12005002",
+  "ziel" : "Fulda",
+  "route" : ["Offenbach Hbf","Hanau Hbf","Langenselbold","Gelnhausen","Wächtersbach","Bad-Soden-Salmünster","Steinau (Straße)","Schlüchtern","Flieden","Neuhof (Kreis Fulda)"]
+},
+{
+  "route_id" : "12005003",
+  "ziel" : "Bebra",
+  "route" : ["Offenbach Hbf","Hanau Hbf","Langenselbold","Gelnhausen","Wächtersbach","Bad-Soden-Salmünster","Steinau (Straße)","Schlüchtern","Flieden","Neuhof (Kreis Fulda)","Fulda","Hünfeld","Burghaun","Neukirchen","Bad Hersfeld","Friedlos"]
+},
+{
+  "route_id" : "13005101",
+  "ziel" : "Frankfurt (Main) Hbf",
+  "route" : [""]
+},
+{
+  "route_id" : "13005102",
+  "ziel" : "Wächtersbach",
+  "route" : ["Offenbach Hbf","Hanau Hbf","Wolfgang (Kreis Hanau)","Rodenbach (bei Hanau)","Langenselbold","Niedermittlau","Hailer-Meerholz","Gelnhausen","Haitz-Höchst","Wirtheim"]
+},
+{
+  "route_id" : "13005103",
+  "ziel" : "Fulda",
+  "route" : ["Offenbach Hbf","Hanau Hbf","Wolfgang (Kreis Hanau)","Rodenbach (bei Hanau)","Langenselbold","Niedermittlau","Hailer-Meerholz","Gelnhausen","Haitz-Höchst","Wirtheim","Wächtersbach","Bad-Soden-Salmünster","Steinau (Straße)","Schlüchtern","Flieden","Neuhof (Kreis Fulda)","Fulda","Hünfeld","Burghaun","Neukirchen","Bad Hersfeld","Friedlos"]
+},
+{
+  "route_id" : "13005104",
+  "ziel" : "Bad-Soden-Salmünster",
+  "route" : ["Offenbach Hbf","Hanau Hbf","Wolfgang (Kreis Hanau)","Rodenbach (bei Hanau)","Langenselbold","Niedermittlau","Hailer-Meerholz","Gelnhausen","Haitz-Höchst","Wirtheim","Wächtersbach"]
+},
+{
+  "route_id" : "12005401",
+  "ziel" : "Frankfurt (Main) Hbf",
+  "route" : []
+},
+{
+  "route_id" : "12005402",
+  "ziel" : "Würzburg Hbf",
+  "route" : ["Frankfurt (Main) Ost","Frankfurt-Mainkur","Maintal West","Maintal Ost","Hanau-Wilhelmsbad","Hanau West","Hanau Hbf","Kahl (Main)","Dettingen (Main)","Kleinostheim","Aschaffenburg Hbf","Heigenbrücken","Wiesthal","Partenstein","Lohr Bahnhof","Langenprozelten","Gemünden (Main)","Karlstadt (Main)","Retzbach-Zellingen"]
+},
+{
+  "route_id" : "12005403",
+  "ziel" : "Bamberg",
+  "route" : ["Frankfurt (Main) Ost","Frankfurt-Mainkur","Maintal West","Maintal Ost","Hanau-Wilhelmsbad","Hanau West","Hanau Hbf","Kahl (Main)","Dettingen (Main)","Kleinostheim","Aschaffenburg Hbf","Heigenbrücken","Wiesthal","Partenstein","Lohr Bahnhof","Langenprozelten","Gemünden (Main)","Karlstadt (Main)","Retzbach-Zellingen", "Würzburg Hbf", "Schweinfurt Hbf", "Haßfurt"]
+},
+{
+  "route_id" : "12005501",
+  "ziel" : "Frankfurt (Main) Hbf",
+  "route" : []
+},
+{
+  "route_id" : "12005502",
+  "ziel" : "Würzburg Hbf",
+  "route" : ["Offenbach Hbf","Hanau Hbf","Kahl (Main)","Dettingen (Main)","Kleinostheim","Aschaffenburg Hbf","Heigenbrücken","Wiesthal","Partenstein","Lohr Bahnhof","Langenprozelten","Gemünden (Main)","Karlstadt (Main)","Retzbach-Zellingen"]
+},
+{
+  "route_id" : "12005503",
+  "ziel" : "Bamberg",
+  "route" : ["Offenbach Hbf","Hanau Hbf","Kahl (Main)","Dettingen (Main)","Kleinostheim","Aschaffenburg Hbf","Heigenbrücken","Wiesthal","Partenstein","Lohr Bahnhof","Langenprozelten","Gemünden (Main)","Karlstadt (Main)","Retzbach-Zellingen", "Würzburg Hbf", "Schweinfurt Hbf", "Haßfurt"]
+},
+{
+  "route_id" : "13005801",
+  "ziel" : "Frankfurt (Main) Hbf",
+  "route" : []
+},
+{
+  "route_id" : "13005802",
+  "ziel" : "Hanau Hbf",
+  "route" : ["Frankfurt (Main) Ost","Frankfurt-Mainkur","Maintal West","Maintal Ost","Hanau-Wilhelmsbad","Hanau West"]
+},
+{
+  "route_id" : "13005803",
+  "ziel" : "Aschaffenburg Hbf",
+  "route" : ["Frankfurt (Main) Ost","Frankfurt-Mainkur","Maintal West","Maintal Ost","Hanau-Wilhelmsbad","Hanau West","Hanau Hbf","Großauheim (Kreis Hanau)","Großkrotzenburg","Kahl (Main)","Dettingen (Main)","Kleinostheim"]
+},
+{
+  "route_id" : "13005804",
+  "ziel" : "Laufach",
+  "route" : ["Frankfurt (Main) Ost","Frankfurt-Mainkur","Maintal West","Maintal Ost","Hanau-Wilhelmsbad","Hanau West","Hanau Hbf","Großauheim (Kreis Hanau)","Großkrotzenburg","Kahl (Main)","Dettingen (Main)","Kleinostheim","Aschaffenburg Hbf","Hösbach"]
+},
+{
+  "route_id" : "13005805",
+  "ziel" : "Rüsselsheim Opelwerk",
+  "route" : ["Frankfurt (Main) Flughafen Fernbahnhof","Rüsselsheim"]
+},
+{
+  "route_id" : "12005901",
+  "ziel" : "Frankfurt (Main) Flughafen Regionalbahnhof",
+  "route" : ["Frankfurt (Main) Stadion"]
+},
+{
+  "route_id" : "12005902",
+  "ziel" : "Hanau Hbf",
+  "route" : ["Frankfurt (Main) Ost","Maintal Ost"]
+}
+  ]

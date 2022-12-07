@@ -1,4 +1,4 @@
-package de.fis.addon.laufschrift;
+package de.fis.addon.test;
 
 import javafx.application.Application;
 import javafx.stage.Stage;

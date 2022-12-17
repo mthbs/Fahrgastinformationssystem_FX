@@ -1,44 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="de.fis.MainBoardController">
+<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fis.MainBoardController">
     <children>
         <Pane fx:id="contentPane" layoutX="-1.0" layoutY="6.0" prefHeight="754.0" prefWidth="800.0">
             <children>
-                <VBox layoutX="50.0" layoutY="50.0" maxHeight="700.0" maxWidth="700.0" minHeight="700.0" minWidth="700.0" prefHeight="700.0"
-                      prefWidth="700.0">
+            <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="800.0" style="visibility: true;">
+              <menus>
+                <Menu mnemonicParsing="false" text="Funktionen">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Bahnhofsanzeige" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Einstellungen">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Setze 12:00 Uhr" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+                <VBox layoutX="50.0" layoutY="50.0" maxHeight="700.0" maxWidth="700.0" minHeight="700.0" minWidth="700.0" prefHeight="700.0" prefWidth="700.0">
                     <children>
                         <HBox maxHeight="100.0" minHeight="100.0" minWidth="300.0" prefHeight="100.0" prefWidth="300.0">
                             <children>
                                 <Label fx:id="labelTime" text="labelTime">
                                     <font>
-                                        <Font size="34.0"/>
+                                        <Font size="34.0" />
                                     </font>
                                 </Label>
                                 <Label fx:id="labelStation" text="labelStation">
                                     <font>
-                                        <Font size="34.0"/>
+                                        <Font size="34.0" />
                                     </font>
                                 </Label>
                             </children>
                         </HBox>
-                        <HBox fx:id="hb_uebers" maxHeight="70.0" minHeight="70.0" prefHeight="70.0" prefWidth="779.0"
-                              styleClass="ueberschrift">
+                        <HBox fx:id="hb_uebers" maxHeight="70.0" minHeight="70.0" prefHeight="70.0" prefWidth="779.0" styleClass="ueberschrift">
                             <children>
                                 <VBox maxWidth="84.0" minWidth="84.0" prefHeight="100.0" prefWidth="84.0">
                                     <children>
                                         <Label text="Zeit:">
                                             <font>
-                                                <Font name="System Bold" size="24.0"/>
+                                                <Font name="System Bold" size="24.0" />
                                             </font>
                                         </Label>
                                         <Label text="Zugnr.">
                                             <font>
-                                                <Font name="System Bold" size="16.0"/>
+                                                <Font name="System Bold" size="16.0" />
                                             </font>
                                         </Label>
                                     </children>
@@ -47,19 +65,19 @@
                                     <children>
                                         <Label text="Nach:">
                                             <font>
-                                                <Font name="System Bold" size="24.0"/>
+                                                <Font name="System Bold" size="24.0" />
                                             </font>
                                         </Label>
                                         <Label maxWidth="511.0" minWidth="511.0" prefWidth="511.0" text="Über: Lauftext">
                                             <font>
-                                                <Font name="System Bold" size="16.0"/>
+                                                <Font name="System Bold" size="16.0" />
                                             </font>
                                         </Label>
                                     </children>
                                 </VBox>
                                 <Label maxWidth="105.0" minWidth="105.0" prefWidth="105.0" text="Gleis:">
                                     <font>
-                                        <Font name="System Bold" size="24.0"/>
+                                        <Font name="System Bold" size="24.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -70,12 +88,12 @@
                                     <children>
                                         <Label fx:id="lbl_time1" text="Zeit:">
                                             <font>
-                                                <Font size="24.0"/>
+                                                <Font size="24.0" />
                                             </font>
                                         </Label>
                                         <Label fx:id="lbl_znr1" text="Zugnr.">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </Label>
                                     </children>
@@ -84,20 +102,19 @@
                                     <children>
                                         <Label fx:id="lbl_ziel1" text="Nach:">
                                             <font>
-                                                <Font size="24.0"/>
+                                                <Font size="24.0" />
                                             </font>
                                         </Label>
-                                        <Text fx:id="txt_route1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
-                                              text="Über: Laufschrift">
+                                        <Text fx:id="txt_route1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Über: Laufschrift">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </Text>
                                     </children>
                                 </VBox>
                                 <Label fx:id="lbl_gleis1" maxWidth="105.0" minWidth="105.0" prefWidth="105.0" text="Gleis:">
                                     <font>
-                                        <Font size="24.0"/>
+                                        <Font size="24.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -108,12 +125,12 @@
                                     <children>
                                         <Label fx:id="lbl_time2" text="Zeit:">
                                             <font>
-                                                <Font size="24.0"/>
+                                                <Font size="24.0" />
                                             </font>
                                         </Label>
                                         <Label fx:id="lbl_znr2" text="Zugnr.">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </Label>
                                     </children>
@@ -122,20 +139,19 @@
                                     <children>
                                         <Label fx:id="lbl_ziel2" text="Nach:">
                                             <font>
-                                                <Font size="24.0"/>
+                                                <Font size="24.0" />
                                             </font>
                                         </Label>
-                                        <Text fx:id="txt_route2" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
-                                              text="Über: Laufschrift">
+                                        <Text fx:id="txt_route2" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Über: Laufschrift">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </Text>
                                     </children>
                                 </VBox>
                                 <Label fx:id="lbl_gleis2" maxWidth="105.0" minWidth="105.0" prefWidth="105.0" text="Gleis:">
                                     <font>
-                                        <Font size="24.0"/>
+                                        <Font size="24.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -146,12 +162,12 @@
                                     <children>
                                         <Label fx:id="lbl_time3" text="Zeit:">
                                             <font>
-                                                <Font size="24.0"/>
+                                                <Font size="24.0" />
                                             </font>
                                         </Label>
                                         <Label fx:id="lbl_znr3" text="Zugnr.">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </Label>
                                     </children>
@@ -160,13 +176,12 @@
                                     <children>
                                         <Label fx:id="lbl_ziel3" text="Nach:">
                                             <font>
-                                                <Font size="24.0"/>
+                                                <Font size="24.0" />
                                             </font>
                                         </Label>
-                                        <Text fx:id="txt_route3" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
-                                              text="Über: Laufschrift">
+                                        <Text fx:id="txt_route3" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Über: Laufschrift">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </Text>
 
@@ -174,7 +189,7 @@
                                 </VBox>
                                 <Label fx:id="lbl_gleis3" maxWidth="105.0" minWidth="105.0" prefWidth="105.0" text="Gleis:">
                                     <font>
-                                        <Font size="24.0"/>
+                                        <Font size="24.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -185,12 +200,12 @@
                                     <children>
                                         <Label fx:id="lbl_time4" text="Zeit:">
                                             <font>
-                                                <Font size="24.0"/>
+                                                <Font size="24.0" />
                                             </font>
                                         </Label>
                                         <Label fx:id="lbl_znr4" text="Zugnr.">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </Label>
                                     </children>
@@ -199,20 +214,19 @@
                                     <children>
                                         <Label fx:id="lbl_ziel4" text="Nach:">
                                             <font>
-                                                <Font size="24.0"/>
+                                                <Font size="24.0" />
                                             </font>
                                         </Label>
-                                        <Text fx:id="txt_route4" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
-                                              text="Über: Laufschrift">
+                                        <Text fx:id="txt_route4" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Über: Laufschrift">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </Text>
                                     </children>
                                 </VBox>
                                 <Label fx:id="lbl_gleis4" maxWidth="105.0" minWidth="105.0" prefWidth="105.0" text="Gleis:">
                                     <font>
-                                        <Font size="24.0"/>
+                                        <Font size="24.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -223,12 +237,12 @@
                                     <children>
                                         <Label fx:id="lbl_time5" text="Zeit:">
                                             <font>
-                                                <Font size="24.0"/>
+                                                <Font size="24.0" />
                                             </font>
                                         </Label>
                                         <Label fx:id="lbl_znr5" text="Zugnr.">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </Label>
                                     </children>
@@ -237,20 +251,19 @@
                                     <children>
                                         <Label fx:id="lbl_ziel5" text="Nach:">
                                             <font>
-                                                <Font size="24.0"/>
+                                                <Font size="24.0" />
                                             </font>
                                         </Label>
-                                        <Text fx:id="txt_route5" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
-                                              text="Über: Laufschrift">
+                                        <Text fx:id="txt_route5" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Über: Laufschrift">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </Text>
                                     </children>
                                 </VBox>
                                 <Label fx:id="lbl_gleis5" maxWidth="105.0" minWidth="105.0" prefWidth="105.0" text="Gleis:">
                                     <font>
-                                        <Font size="24.0"/>
+                                        <Font size="24.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -261,12 +274,12 @@
                                     <children>
                                         <Label fx:id="lbl_time6" text="Zeit:">
                                             <font>
-                                                <Font size="24.0"/>
+                                                <Font size="24.0" />
                                             </font>
                                         </Label>
                                         <Label fx:id="lbl_znr6" text="Zugnr.">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </Label>
                                     </children>
@@ -275,20 +288,19 @@
                                     <children>
                                         <Label fx:id="lbl_ziel6" text="Nach:">
                                             <font>
-                                                <Font size="24.0"/>
+                                                <Font size="24.0" />
                                             </font>
                                         </Label>
-                                        <Text fx:id="txt_route6" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
-                                              text="Über: Laufschrift">
+                                        <Text fx:id="txt_route6" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Über: Laufschrift">
                                             <font>
-                                                <Font size="16.0"/>
+                                                <Font size="16.0" />
                                             </font>
                                         </Text>
                                     </children>
                                 </VBox>
                                 <Label fx:id="lbl_gleis6" maxWidth="105.0" minWidth="105.0" prefWidth="105.0" text="Gleis:">
                                     <font>
-                                        <Font size="24.0"/>
+                                        <Font size="24.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -297,10 +309,8 @@
                             <children>
                                 <VBox prefHeight="200.0" prefWidth="100.0">
                                     <children>
-                                        <Label maxWidth="700.0" minWidth="700.0" prefWidth="700.0" styleClass="yellowInfo"
-                                               text="Datum - aktuelle Informationen" textAlignment="CENTER"/>
-                                        <Text fx:id="txt_infos" strokeType="OUTSIDE" strokeWidth="0.0"
-                                              text="Program 1: This program creates a label indicated by the name b. The progress indicator will be created inside a scene, which in turn will be hosted inside a stage (which is the top level JavaFX container). The function setTitle() is used to provide title to the stage. Then a stack-pane is created, on which addChildren() method is called to attach the label inside the scene, along with the resolution specified by (200, 200) in the code. Finally the show() method is called to display the final results."/>
+                                        <Label maxWidth="700.0" minWidth="700.0" prefWidth="700.0" styleClass="yellowInfo" text="Datum - aktuelle Informationen" textAlignment="CENTER" />
+                                        <Text fx:id="txt_infos" strokeType="OUTSIDE" strokeWidth="0.0" text="Program 1: This program creates a label indicated by the name b. The progress indicator will be created inside a scene, which in turn will be hosted inside a stage (which is the top level JavaFX container). The function setTitle() is used to provide title to the stage. Then a stack-pane is created, on which addChildren() method is called to attach the label inside the scene, along with the resolution specified by (200, 200) in the code. Finally the show() method is called to display the final results." />
                                     </children>
                                 </VBox>
                             </children>

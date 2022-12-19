@@ -14,7 +14,8 @@ public class Unterwegshalte {
     @JsonProperty("route")
     private String[] route;
 
-    public Unterwegshalte(){}
+    public Unterwegshalte() {
+    }
 
     public Unterwegshalte(final String routeId, final String ziel, final String[] route) {
         this.routeId = routeId;

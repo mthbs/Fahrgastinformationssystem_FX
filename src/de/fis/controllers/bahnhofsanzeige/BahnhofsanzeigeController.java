@@ -1,4 +1,4 @@
-package de.fis;
+package de.fis.controllers.bahnhofsanzeige;
 
 import de.fis.addon.time.CurrentTime;
 import de.fis.addon.time.Time;
@@ -9,9 +9,13 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -21,88 +25,121 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class MainBoardController implements Initializable {
 
+public class BahnhofsanzeigeController implements Initializable {
 
-//    Time time = new Time("12:00:00");
-    Time time = new Time(new CurrentTime().currentTime());
     List<Abfahrt> abfahrtList = new ArrayList<>();
+
     @FXML
     private Label labelTime;
+
     @FXML
     private Label labelStation;
+
     @FXML
     private Label lbl_time1;
+
     @FXML
     private Label lbl_time2;
+
     @FXML
     private Label lbl_time3;
+
     @FXML
     private Label lbl_time4;
+
     @FXML
     private Label lbl_time5;
+
     @FXML
     private Label lbl_time6;
+
     @FXML
     private Label lbl_znr1;
+
     @FXML
     private Label lbl_znr2;
+
     @FXML
     private Label lbl_znr3;
+
     @FXML
     private Label lbl_znr4;
+
     @FXML
     private Label lbl_znr5;
+
     @FXML
     private Label lbl_znr6;
+
     @FXML
     private Label lbl_ziel1;
+
     @FXML
     private Label lbl_ziel2;
+
     @FXML
     private Label lbl_ziel3;
+
     @FXML
     private Label lbl_ziel4;
+
     @FXML
     private Label lbl_ziel5;
+
     @FXML
     private Label lbl_ziel6;
+
     @FXML
     private Label lbl_gleis1;
+
     @FXML
     private Label lbl_gleis2;
+
     @FXML
     private Label lbl_gleis3;
+
     @FXML
     private Label lbl_gleis4;
+
     @FXML
     private Label lbl_gleis5;
+
     @FXML
     private Label lbl_gleis6;
 
     @FXML
     private Text txt_route1;
+
     @FXML
     private Text txt_route2;
+
     @FXML
     private Text txt_route3;
+
     @FXML
     private Text txt_route4;
+
     @FXML
     private Text txt_route5;
+
     @FXML
     private Text txt_route6;
 
     @FXML
     private Text txt_infos;
 
+    private Time time;
+
 
     @Override
     public void initialize(final URL url, final ResourceBundle resourceBundle) {
 
+        time = new Time(new CurrentTime().currentTime());
+
         labelTime.setText(time.getCurrentTime(true));
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),ev -> {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), ev -> {
             // code every one second:
             time.oneSecondPassed();
             labelTime.setText(time.getCurrentTime(true));
@@ -120,7 +157,7 @@ public class MainBoardController implements Initializable {
             System.err.println("IO Exception");
             e.printStackTrace();
         }
-        Timeline timelineMinute = new Timeline(new KeyFrame(Duration.seconds(60),ev -> {
+        Timeline timelineMinute = new Timeline(new KeyFrame(Duration.seconds(30), ev -> {
             try {
                 ladeAbfahrten(time);
             } catch (SQLException e) {
@@ -134,17 +171,24 @@ public class MainBoardController implements Initializable {
 
     }
 
+    // soll die Uhrzeit auf 12 Uhr setzen & Seite aktualisieren
+    public void setzeZeitauf12() {
+        time = new Time("12:00:00");
+        // [] soll sofort Seite neu laden
+    }
+
+    // Lädt Abfahrten füllt die Inhalte mit der fillRow-Funktion
     private void ladeAbfahrten(Time time) throws SQLException, IOException {
         // DB Connection
-        DBConnection dba = new DBConnection("root","root");
+        DBConnection dba = new DBConnection("root", "root");
         abfahrtList.clear();
         abfahrtList = dba.getNextSix(time);
-        fillRow(0,lbl_time1,lbl_znr1,lbl_gleis1,lbl_ziel1,txt_route1);
-        fillRow(1,lbl_time2,lbl_znr2,lbl_gleis2,lbl_ziel2,txt_route2);
-        fillRow(2,lbl_time3,lbl_znr3,lbl_gleis3,lbl_ziel3,txt_route3);
-        fillRow(3,lbl_time4,lbl_znr4,lbl_gleis4,lbl_ziel4,txt_route4);
-        fillRow(4,lbl_time5,lbl_znr5,lbl_gleis5,lbl_ziel5,txt_route5);
-        fillRow(5,lbl_time6,lbl_znr6,lbl_gleis6,lbl_ziel6,txt_route6);
+        fillRow(0, lbl_time1, lbl_znr1, lbl_gleis1, lbl_ziel1, txt_route1);
+        fillRow(1, lbl_time2, lbl_znr2, lbl_gleis2, lbl_ziel2, txt_route2);
+        fillRow(2, lbl_time3, lbl_znr3, lbl_gleis3, lbl_ziel3, txt_route3);
+        fillRow(3, lbl_time4, lbl_znr4, lbl_gleis4, lbl_ziel4, txt_route4);
+        fillRow(4, lbl_time5, lbl_znr5, lbl_gleis5, lbl_ziel5, txt_route5);
+        fillRow(5, lbl_time6, lbl_znr6, lbl_gleis6, lbl_ziel6, txt_route6);
         laufschrift(txt_infos);
 
     }
@@ -160,16 +204,16 @@ public class MainBoardController implements Initializable {
         lbl_znr.setText(abfahrtList.get(index).getZugnr());
         lbl_gleis.setText(abfahrtList.get(index).getGleis());
         lbl_ziel.setText(abfahrtList.get(index).getRoute().getZielbf());
-        String[] routeArr = includeHalte(index,abfahrtList.get(index).getRouteId());
+        String[] routeArr = includeHalte(index, abfahrtList.get(index).getRouteId());
         String route = "";
-        for(String s : routeArr){
-            if(route.equals("")){
+        for (String s : routeArr) {
+            if (route.equals("")) {
                 route = "über: " + s;
-            }else {
+            } else {
                 route = route + ", " + s;
             }
         }
-        if(route.equals("über: ")){
+        if (route.equals("über: ")) {
             route = "";
         }
         txt_route.setText(route);
@@ -177,14 +221,35 @@ public class MainBoardController implements Initializable {
     }
 
     private void laufschrift(Text txt_route) {
+        int statt500 = 3 * txt_route.toString().length();
         txt_route.setTranslateX(150);
-        Timeline timeline = new Timeline(new KeyFrame(Duration.ZERO, e->{
-            txt_route.setTranslateX(txt_route.getTranslateX()-4);
-            if(txt_route.getTranslateX() <= -500){
+        Timeline timeline = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            txt_route.setTranslateX(txt_route.getTranslateX() - 4);
+            if (txt_route.getTranslateX() <= -statt500) {
                 txt_route.setTranslateX(150);
             }
-        }), new KeyFrame(Duration.millis(50)));
+        }), new KeyFrame(Duration.millis(25)));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+    }
+
+    @FXML
+    private void oeffneVideoplayer() {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("../../fxml/videoplayer/Videoplayer.fxml"));
+        try {
+            fxmlLoader.load();
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+        }
+        Parent root = fxmlLoader.getRoot();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("../../style/root.css").toExternalForm());
+        Stage openStage = new Stage();
+        Stage closeStage = (Stage) labelStation.getScene().getWindow();
+        closeStage.close();
+        openStage.setScene(scene);
+        openStage.show();
     }
 }

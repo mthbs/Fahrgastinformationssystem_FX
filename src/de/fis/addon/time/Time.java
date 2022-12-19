@@ -2,8 +2,11 @@ package de.fis.addon.time;
 
 // source: https://www.youtube.com/watch?v=zJZ-ogqin2o
 public class Time {
+
     private int hour;
+
     private int minute;
+
     private int second;
 
     public Time(final int hour, final int minute, final int second) {
@@ -19,35 +22,35 @@ public class Time {
         second = Integer.parseInt(time[2]);
     }
 
-    public String getCurrentTime(boolean seconds){
+    public String getCurrentTime(boolean seconds) {
         String min;
         String sec;
-        if(minute < 10){
+        if (minute < 10) {
             min = 0 + String.valueOf(minute);
-        } else{
+        } else {
             min = String.valueOf(minute);
         }
-        if(second < 10){
+        if (second < 10) {
             sec = 0 + String.valueOf(second);
         } else {
             sec = String.valueOf(second);
         }
 
-        if(seconds){
+        if (seconds) {
             return hour + ":" + min + ":" + sec;
         }
         return hour + ":" + min;
     }
 
-    public void oneSecondPassed(){
+    public void oneSecondPassed() {
         second++;
-        if(second >= 60){
+        if (second >= 60) {
             minute++;
             second = 0;
-            if(minute >= 60){
+            if (minute >= 60) {
                 hour++;
                 minute = 0;
-                if(hour >= 24){
+                if (hour >= 24) {
                     hour = 0;
                     System.out.println("next day");
                 }

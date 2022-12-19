@@ -7,8 +7,11 @@ import java.util.List;
 
 
 public class Route {
+
     private String routeId;
+
     private String zielbf;
+
     private String[] halte;
 
     public Route(final String routeId) throws SQLException {
@@ -18,7 +21,7 @@ public class Route {
     }
 
     private void loadZielbf() throws SQLException {
-        DBConnection dba = new DBConnection("root","root");
+        DBConnection dba = new DBConnection("root", "root");
         zielbf = dba.getZielbf(routeId);
     }
 

@@ -3,6 +3,14 @@
     -fx-color-label-visible: #f9f8f8;
     -fx-text-fill: #f9f8f8;
 }
+.menu-bar{
+    -fx-background-color: #ffff01;
+}
+.menu .label{
+    -fx-color-label-visible: #000100;
+    -fx-text-fill: #000100;
+}
+
 .label{
     -fx-color-label-visible: #f9f8f8;
     -fx-text-fill: #f9f8f8;
@@ -27,3 +35,4 @@
     -fx-text-fill: #000100;
     -fx-text-alignment: center;
 }
+

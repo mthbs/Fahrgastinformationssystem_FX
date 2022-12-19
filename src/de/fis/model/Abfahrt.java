@@ -6,11 +6,17 @@ import java.sql.SQLException;
 
 
 public class Abfahrt {
+
     private String id;
+
     private Time abfahrt;
+
     private String zugnr;
+
     private String gleis;
+
     private String routeId; // Fremdschlüssel
+
     private Route route;
 
     public Abfahrt(final String id, final Time abfahrt, final String zugnr, final String gleis, final String routeId) throws SQLException {

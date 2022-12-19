@@ -136,6 +136,7 @@ public class BahnhofsanzeigeController implements Initializable {
     public void initialize(final URL url, final ResourceBundle resourceBundle) {
 
         time = new Time(new CurrentTime().currentTime());
+//        time = new Time("14:00:00");
 
         labelTime.setText(time.getCurrentTime(true));
 

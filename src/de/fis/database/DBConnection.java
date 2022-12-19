@@ -31,7 +31,8 @@ public class DBConnection {
                 true) + "\' order by" + " abfahrt limit 6");
         List<Abfahrt> abfahrtList = new ArrayList<>();
         while (resultSet.next()) {
-            Abfahrt abfahrt = new Abfahrt(resultSet.getString("id"), new Time(resultSet.getString("abfahrt")), resultSet.getString("zugnr"),
+            Abfahrt abfahrt = new Abfahrt(resultSet.getString("abfahrt_id"), new Time(resultSet.getString("abfahrt")), resultSet.getString(
+                    "zugnr"),
                     resultSet.getString("gleis"), resultSet.getString("route_id"));
             abfahrtList.add(abfahrt);
         }

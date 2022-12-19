@@ -108,5 +108,10 @@
   "route_id" : "12005902",
   "ziel" : "Hanau Hbf",
   "route" : ["Frankfurt (Main) Ost","Maintal Ost"]
-}
+},
+  {
+  "route_id" : "10000301",
+  "ziel" : "Bad Soden",
+  "route" : ["F-Lokalbahnhof", "F-Ostendstraße", "F-Konstablerwache", "F-Hauptwache","F-Taunusanlage","Frankfurt (Main) Hbf","F-Galluswarte","F-Messe","Frankfurt (Main) West","F-Rödelheim","Eschborn Süd","Eschborn","Niederhöchstadt","Schwalbach Nord","Schwalbach-Limes","Sulzbach Nord"]
+  }
   ]

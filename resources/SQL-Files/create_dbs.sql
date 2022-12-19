@@ -22,6 +22,7 @@ INSERT INTO ROUTE (id,ziel) values ('12005402','Würzburg Hbf'),('12005403','Bam
 INSERT INTO ROUTE (id,ziel) values ('12005503','Bamberg'),('13005801','Frankfurt (Main) Hbf'),('13005802','Hanau Hbf'),('13005803','Aschaffenburg Hbf'),('13005804','Laufach');
 INSERT INTO ROUTE (id,ziel) values ('13005805','Rüsselsheim Opelwerk'), ('12005901','Frankfurt (Main) Flughafen Regionalbahnhof'),('12005902','Hanau Hbf');
 INSERT INTO ROUTE (id,ziel) values ('12000501','Frankfurt (Main) Hbf'), ('12000502','Bebra'),('12005003','Bebra'),('13005103','Fulda'),('13005104','Bad Soden-Salmünster');
+INSERT INTO ROUTE (id,ziel) values ('10000301','Bad Soden (Taunus)');
 
 CREATE table Abfahrt (
 	abfahrt_id int not null auto_increment,
@@ -229,3 +230,49 @@ INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('17:21:00','RE59',8,'
 INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('19:24:00','RE59',8,'12005902');
 INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('21:24:00','RE59',8,'12005902');
 
+-- S3 Richtung Bad Soden
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('00:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('00:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('01:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('02:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('03:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('04:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('04:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('05:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('05:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('06:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('06:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('07:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('07:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('08:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('08:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('09:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('09:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('10:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('10:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('11:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('11:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('12:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('12:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('13:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('13:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('14:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('14:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('15:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('15:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('16:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('16:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('17:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('17:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('18:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('18:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('19:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('19:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('20:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('20:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('21:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('21:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('22:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('22:33:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('23:03:00','S3',4,'10000301');
+INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values ('23:33:00','S3',4,'10000301');

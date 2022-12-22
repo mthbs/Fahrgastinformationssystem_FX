@@ -7,9 +7,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLOutput;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class DBConnection {
@@ -26,8 +29,20 @@ public class DBConnection {
         establishConnection();
     }
 
+    private void establishConnection() {
+        try {
+            Connection connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/activeworkbench?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+                    username, password);
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
     public List<Abfahrt> getNextSix(Time time) throws SQLException {
-        ResultSet resultSet = statement.executeQuery(" SELECT * FROM activeworkbench.abfahrt where abfahrt > \'" + time.getCurrentTime(
+        ResultSet resultSet =
+                statement.executeQuery(" SELECT DISTINCT * FROM activeworkbench.abfahrt where abfahrt > \'" + time.getCurrentTime(
                 true) + "\' order by" + " abfahrt limit 6");
         List<Abfahrt> abfahrtList = new ArrayList<>();
         while (resultSet.next()) {
@@ -49,14 +64,22 @@ public class DBConnection {
         return res;
     }
 
-    private void establishConnection() {
-        try {
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/activeworkbench?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-                    username, password);
-            statement = connection.createStatement();
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
+    public Set<String> getAllUsedLines() throws SQLException {
+        Set<String> allUsedLines = new HashSet<>();
+        ResultSet resultSet = statement.executeQuery(" SELECT DISTINCT zugnr FROM activeworkbench.abfahrt ");
+        while (resultSet.next()) {
+            allUsedLines.add(resultSet.getString("zugnr"));
         }
+        return allUsedLines;
     }
+
+    public Set<String> getAllUsedZiele() throws SQLException {
+        Set<String> allUsedZiele = new HashSet<>();
+        ResultSet resultSet = statement.executeQuery(" SELECT DISTINCT halteName FROM activeworkbench.haltepunkt ");
+        while (resultSet.next()) {
+            allUsedZiele.add(resultSet.getString("halteName"));
+        }
+        return allUsedZiele;
+    }
+
 }

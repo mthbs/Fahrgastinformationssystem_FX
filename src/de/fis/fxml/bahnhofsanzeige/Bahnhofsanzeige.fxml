@@ -111,6 +111,9 @@
                                     <font>
                                         <Font size="16.0" />
                                     </font>
+                           <VBox.margin>
+                              <Insets left="19.0" right="19.0" />
+                           </VBox.margin>
                                 </Text>
                             </children>
                         </VBox>

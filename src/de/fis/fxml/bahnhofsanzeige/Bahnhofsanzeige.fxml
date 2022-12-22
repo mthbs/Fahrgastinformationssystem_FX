@@ -15,12 +15,13 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fis.controllers.bahnhofsanzeige.BahnhofsanzeigeController">
     <children>
-        <MenuBar prefHeight="25.0" prefWidth="800.0" style="visibility: true;" AnchorPane.bottomAnchor="775.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <MenuBar fx:id="menubar" prefHeight="25.0" prefWidth="800.0" style="visibility: true;" AnchorPane.bottomAnchor="775.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <menus>
-                <Menu mnemonicParsing="false" text="Szene">
+                <Menu fx:id="main_menu" mnemonicParsing="false" text="Szene">
                     <items>
-                        <MenuItem disable="true" mnemonicParsing="false" text="Bahnhofsanzeige" />
+                        <MenuItem mnemonicParsing="false" onAction="#oeffneBahnhofsanzeige" text="Bahnhofsanzeige" />
                         <MenuItem mnemonicParsing="false" onAction="#oeffneVideoplayer" text="Videoplayer" />
+                        <MenuItem mnemonicParsing="false" onAction="#oeffneFahrplanverwaltung" text="Fahrplanverwaltung" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Funktionen">
@@ -331,5 +332,6 @@
                 </HBox>
             </children>
         </VBox>
+      <Label fx:id="lbl_signature" alignment="BOTTOM_LEFT" text="Copyright=Maxim Neumann" textAlignment="RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
     </children>
 </AnchorPane>

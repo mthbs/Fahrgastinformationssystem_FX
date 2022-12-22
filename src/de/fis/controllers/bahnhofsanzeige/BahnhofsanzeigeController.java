@@ -2,20 +2,18 @@ package de.fis.controllers.bahnhofsanzeige;
 
 import de.fis.addon.time.CurrentTime;
 import de.fis.addon.time.Time;
+import de.fis.controllers.ParentController;
 import de.fis.database.DBConnection;
 import de.fis.database.JSONConnection;
 import de.fis.model.Abfahrt;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -26,7 +24,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 
-public class BahnhofsanzeigeController implements Initializable {
+public class BahnhofsanzeigeController extends ParentController implements Initializable {
 
     List<Abfahrt> abfahrtList = new ArrayList<>();
 
@@ -234,23 +232,23 @@ public class BahnhofsanzeigeController implements Initializable {
         timeline.play();
     }
 
-    @FXML
-    private void oeffneVideoplayer() {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("../../fxml/videoplayer/Videoplayer.fxml"));
-        try {
-            fxmlLoader.load();
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-            e.printStackTrace();
-        }
-        Parent root = fxmlLoader.getRoot();
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("../../style/root.css").toExternalForm());
-        Stage openStage = new Stage();
-        Stage closeStage = (Stage) labelStation.getScene().getWindow();
-        closeStage.close();
-        openStage.setScene(scene);
-        openStage.show();
-    }
+//    @FXML
+//    private void oeffneVideoplayer() {
+//        FXMLLoader fxmlLoader = new FXMLLoader();
+//        fxmlLoader.setLocation(getClass().getResource("../../fxml/videoplayer/Videoplayer.fxml"));
+//        try {
+//            fxmlLoader.load();
+//        } catch (IOException e) {
+//            System.err.println(e.getMessage());
+//            e.printStackTrace();
+//        }
+//        Parent root = fxmlLoader.getRoot();
+//        Scene scene = new Scene(root);
+//        scene.getStylesheets().add(getClass().getResource("../../style/root.css").toExternalForm());
+//        Stage openStage = new Stage();
+//        Stage closeStage = (Stage) labelStation.getScene().getWindow();
+//        closeStage.close();
+//        openStage.setScene(scene);
+//        openStage.show();
+//    }
 }

@@ -1,5 +1,6 @@
 package de.fis.controllers.videoplayer;
 
+import de.fis.controllers.ParentController;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
@@ -18,7 +19,7 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class VideoplayerController {
+public class VideoplayerController extends ParentController {
 
     @FXML
     private Button openButton;
@@ -109,26 +110,6 @@ public class VideoplayerController {
 
     }
 
-
-    @FXML
-    private void oeffneBahnhofsanzeige() {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("../../fxml/bahnhofsanzeige/Bahnhofsanzeige.fxml"));
-        try {
-            fxmlLoader.load();
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-            e.printStackTrace();
-        }
-        Parent root = fxmlLoader.getRoot();
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("../../style/root.css").toExternalForm());
-        Stage openStage = new Stage();
-        Stage closeStage = (Stage) mediaView.getScene().getWindow();
-        closeStage.close();
-        openStage.setScene(scene);
-        openStage.show();
-    }
 
 }
 

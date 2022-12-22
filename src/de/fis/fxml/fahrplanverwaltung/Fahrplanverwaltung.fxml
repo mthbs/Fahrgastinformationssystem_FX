@@ -20,7 +20,8 @@
             <Menu mnemonicParsing="false" text="Szene">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#oeffneBahnhofsanzeige" text="Bahnhofsanzeige" />
-                  <MenuItem disable="true" mnemonicParsing="false" text="Videoplayer" />
+                   <MenuItem mnemonicParsing="false" onAction="#oeffneVideoplayer" text="Videoplayer" />
+                   <MenuItem mnemonicParsing="false" onAction="#oeffneFahrplanverwaltung" text="Fahrplanverwaltung" />
                </items>
             </Menu>
          </menus>
@@ -48,7 +49,7 @@
                         <Insets left="25.0" />
                      </padding>
                   </Label>
-                  <MenuButton mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="wähle aus">
+                  <MenuButton fx:id="dropdown_linie" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="wähle aus">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Action 1" />
                       <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -57,12 +58,12 @@
                         <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
                      </HBox.margin>
                   </MenuButton>
-                   <TextField prefHeight="60.0" prefWidth="150.0">
+                   <TextField fx:id="input_linie" prefHeight="60.0" prefWidth="150.0">
                        <HBox.margin>
                            <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
                        </HBox.margin>
                    </TextField>
-                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="30.0" text="+">
+                  <Button fx:id="btn_new_linie" mnemonicParsing="false" prefHeight="100.0" prefWidth="30.0" text="+">
                      <HBox.margin>
                         <Insets bottom="20.0" left="45.0" right="25.0" top="20.0" />
                      </HBox.margin>
@@ -82,7 +83,7 @@
                              <Insets left="25.0" />
                          </padding>
                      </Label>
-                     <MenuButton mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="wähle aus">
+                     <MenuButton fx:id="dropdown_ziel" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="wähle aus">
                          <items>
                              <MenuItem mnemonicParsing="false" text="Action 1" />
                              <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -91,12 +92,12 @@
                              <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
                          </HBox.margin>
                      </MenuButton>
-                     <TextField prefHeight="60.0" prefWidth="150.0">
+                     <TextField fx:id="input_ziel" prefHeight="60.0" prefWidth="150.0">
                          <HBox.margin>
                              <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
                          </HBox.margin>
                      </TextField>
-                     <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="30.0" text="+">
+                     <Button fx:id="btn_new_ziel" mnemonicParsing="false" prefHeight="100.0" prefWidth="30.0" text="+">
                          <HBox.margin>
                              <Insets bottom="20.0" left="45.0" right="25.0" top="20.0" />
                          </HBox.margin>
@@ -113,7 +114,7 @@
                         <Insets left="25.0" />
                      </padding>
                   </Label>
-                   <TextField prefHeight="60.0" prefWidth="130.0">
+                   <TextField fx:id="input_zeit_von" prefHeight="60.0" prefWidth="130.0">
                        <HBox.margin>
                            <Insets bottom="20.0" left="25.0" top="20.0" />
                        </HBox.margin>
@@ -126,7 +127,7 @@
                         <Insets left="15.0" />
                      </padding>
                    </Label>
-                   <TextField prefHeight="60.0" prefWidth="130.0">
+                   <TextField fx:id="input_zeit_bis" prefHeight="60.0" prefWidth="130.0">
                        <HBox.margin>
                            <Insets bottom="20.0" top="20.0" />
                        </HBox.margin>
@@ -139,7 +140,7 @@
                            <Insets left="10.0" />
                        </padding>
                    </Label>
-                   <TextField prefHeight="60.0" prefWidth="85.0">
+                   <TextField fx:id="input_zeit_takt" prefHeight="60.0" prefWidth="85.0">
                        <HBox.margin>
                            <Insets bottom="20.0" left="10.0" right="25.0" top="20.0" />
                        </HBox.margin>
@@ -159,31 +160,31 @@
                         <Insets left="25.0" />
                      </padding>
                   </Label>
-                  <TextField prefHeight="60.0" prefWidth="310.0">
+                  <TextField fx:id="input_route_id" prefHeight="60.0" prefWidth="310.0">
                      <HBox.margin>
                         <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Syntax prüfen">
+                  <Button fx:id="btn_route_proof_syntax" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Syntax prüfen">
                      <HBox.margin>
                         <Insets bottom="20.0" left="15.0" right="25.0" top="20.0" />
                      </HBox.margin>
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox fx:id="btn_cancel" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="35.0" text="Formular leeren" textAlignment="CENTER">
+                  <Button fx:id="btn_free_form" alignment="CENTER" mnemonicParsing="false" prefHeight="35.0" text="Formular leeren" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="35.0" text="Fahrten hinzufügen">
+                  <Button fx:id="btn_add_form" mnemonicParsing="false" prefHeight="35.0" text="Fahrten hinzufügen">
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="35.0" text="Abbrechen">
+                  <Button fx:id="btn_abbrechen" mnemonicParsing="false" prefHeight="35.0" text="Abbrechen">
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" />
                      </HBox.margin>
@@ -195,5 +196,6 @@
             </HBox>
          </children>
       </VBox>
+       <Label fx:id="lbl_signature" alignment="BOTTOM_LEFT" text="Copyright=Maxim Neumann" textAlignment="RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>
 </AnchorPane>

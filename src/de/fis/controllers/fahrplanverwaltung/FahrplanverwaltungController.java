@@ -146,7 +146,7 @@ public class FahrplanverwaltungController extends ParentController implements In
     @FXML
     private void btnNewZielClicked() throws SQLException {
         String str_new_ziel = input_ziel.getText().strip();
-        // erstellt neuen Ziel in der DB, falls noch nicht existent
+        // erstellt neues Ziel in der DB, falls noch nicht existent
         dba.createZielIfNotExists(str_new_ziel);
     }
 

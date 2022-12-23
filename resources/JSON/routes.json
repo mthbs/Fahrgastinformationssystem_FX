@@ -109,9 +109,24 @@
   "ziel" : "Hanau Hbf",
   "route" : ["Frankfurt (Main) Ost","Maintal Ost"]
 },
-  {
-  "route_id" : "10000301",
-  "ziel" : "Bad Soden",
-  "route" : ["F-Lokalbahnhof", "F-Ostendstraße", "F-Konstablerwache", "F-Hauptwache","F-Taunusanlage","Frankfurt (Main) Hbf","F-Galluswarte","F-Messe","Frankfurt (Main) West","F-Rödelheim","Eschborn Süd","Eschborn","Niederhöchstadt","Schwalbach Nord","Schwalbach-Limes","Sulzbach Nord"]
-  }
-  ]
+{
+"route_id" : "10000301",
+"ziel" : "Bad Soden",
+"route" : ["F-Lokalbahnhof", "F-Ostendstraße", "F-Konstablerwache", "F-Hauptwache","F-Taunusanlage","Frankfurt (Main) Hbf","F-Galluswarte","F-Messe","Frankfurt (Main) West","F-Rödelheim","Eschborn Süd","Eschborn","Niederhöchstadt","Schwalbach Nord","Schwalbach-Limes","Sulzbach Nord"]
+},
+{
+"route_id" : "10000302",
+"ziel" : "Darmstadt Hbf",
+"route" : ["F-Stresemannallee", "F-Louisa", "Neu-Isenburg", "Dreieich-Buchschlag","Langen-Flugsicherung","Langen","Egelsbach","Erzhausen","Darmstadt-Wixhausen","DA-Arheilgen"]
+},
+{
+"route_id" : "10000401",
+"ziel" : "Kronberg",
+"route" : ["F-Lokalbahnhof", "F-Ostendstraße", "F-Konstablerwache", "F-Hauptwache","F-Taunusanlage","Frankfurt (Main) Hbf","F-Galluswarte","F-Messe","Frankfurt (Main) West","F-Rödelheim","Eschborn Süd","Eschborn","Niederhöchstadt","Kronberg Süd"]
+},
+{
+"route_id" : "10000402",
+"ziel" : "Langen",
+"route" : ["F-Stresemannallee", "F-Louisa", "Neu-Isenburg", "Dreieich-Buchschlag","Langen-Flugsicherung"]
+}
+]

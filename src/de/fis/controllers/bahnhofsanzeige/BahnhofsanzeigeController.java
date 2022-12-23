@@ -170,12 +170,6 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
 
     }
 
-    // soll die Uhrzeit auf 12 Uhr setzen & Seite aktualisieren
-    public void setzeZeitauf12() {
-        time = new Time("12:00:00");
-        // [] soll sofort Seite neu laden
-    }
-
     // Lädt Abfahrten füllt die Inhalte mit der fillRow-Funktion
     private void ladeAbfahrten(Time time) throws SQLException, IOException {
         // DB Connection

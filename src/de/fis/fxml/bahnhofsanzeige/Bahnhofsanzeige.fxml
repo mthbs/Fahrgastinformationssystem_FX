@@ -24,12 +24,6 @@
                         <MenuItem mnemonicParsing="false" onAction="#oeffneFahrplanverwaltung" text="Fahrplanverwaltung" />
                     </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Funktionen">
-                    <items>
-                        <MenuItem fx:id="setTo12" mnemonicParsing="false" onAction="#setzeZeitauf12" text="Aktualisieren" />
-                        <MenuItem mnemonicParsing="false" text="Setze 12:00 Uhr" />
-                    </items>
-                </Menu>
             </menus>
         </MenuBar>
         <VBox maxHeight="700.0" maxWidth="700.0" minHeight="700.0" minWidth="700.0" prefHeight="700.0" prefWidth="700.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">

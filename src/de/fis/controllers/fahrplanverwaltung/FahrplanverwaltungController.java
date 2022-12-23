@@ -5,6 +5,7 @@ import de.fis.database.DBConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
@@ -19,6 +20,9 @@ import java.util.regex.Pattern;
 
 
 public class FahrplanverwaltungController extends ParentController implements Initializable {
+
+    @FXML
+    private Label lbl_title;
 
     @FXML
     private Button btn_abbrechen;
@@ -62,12 +66,17 @@ public class FahrplanverwaltungController extends ParentController implements In
     @FXML
     private TextField input_ziel;
 
+    @FXML
+    private TextField input_gleis;
+
     private boolean singleTrip = false;
+
+    private DBConnection dba;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        DBConnection dba = new DBConnection("root","root");
+        dba = new DBConnection("root","root");
 
         Set<String> allUsedLines = null;
         Set<String> allUsedZiele = null;
@@ -87,8 +96,8 @@ public class FahrplanverwaltungController extends ParentController implements In
         }
 
         input_zeit_von.setText("12:00:00");
-        input_zeit_bis.setText("12:30:00");
-        input_zeit_takt.setText("30");
+//        input_zeit_bis.setText("12:30:00");
+//        input_zeit_takt.setText("30");
     }
 
     @FXML
@@ -106,7 +115,7 @@ public class FahrplanverwaltungController extends ParentController implements In
         if(input_linie.getText().length() > 0 && input_ziel.getText().length() > 0 && input_zeit_von.getText().length() > 0 && input_route_id.getText().length() == 8){
 
             // Zeit Regex:
-            if(!regexIsValid(input_zeit_von.getText(),"\\d{2}:\\d{2}:\\d{2}") || !regexIsValid(input_route_id.getText(),"\\d{8}")){
+            if(!regexIsValid(input_zeit_von.getText(),"\\d{2}:\\d{2}:\\d{2}") || !regexIsValid(input_route_id.getText(),"\\d{8}") || !regexIsValid(input_gleis.getText(),"\\d{1}")){
                 System.out.println("Syntax is not correct");
                 return false;
             }
@@ -133,5 +142,22 @@ public class FahrplanverwaltungController extends ParentController implements In
         Matcher matcher = pattern.matcher(text);
         return matcher.find();
     }
+
+    @FXML
+    private void btnNewZielClicked() throws SQLException {
+        String str_new_ziel = input_ziel.getText().strip();
+        // erstellt neuen Ziel in der DB, falls noch nicht existent
+        dba.createZielIfNotExists(str_new_ziel);
+    }
+
+    @FXML
+    private void btnAddFormClicked() throws SQLException {
+        if(btnProofSyntaxClicked()){
+            dba.createNewAbfahrt(input_zeit_von.getText(),input_linie.getText(),input_gleis.getText(),input_route_id.getText());
+        } else {
+            lbl_title.setText(lbl_title.getText()+"(!)");
+        }
+    }
+
 
 }

@@ -82,4 +82,25 @@ public class DBConnection {
         return allUsedZiele;
     }
 
+    public void createZielIfNotExists(String name) throws SQLException {
+        boolean alreadyExists = false;
+        ResultSet resultSet = statement.executeQuery(" SELECT DISTINCT halteName FROM activeworkbench.haltepunkt ");
+        while (resultSet.next()) {
+            if(name.equals(resultSet.getString("halteName"))){
+                alreadyExists = true;
+            }
+        }
+        // create new entry
+        if(!alreadyExists) {
+            String query = " insert into activeworkbench.haltepunkt (halteName) values (\'" + name + "\') ";
+            statement.executeUpdate(query);
+        }
+    }
+
+    public void createNewAbfahrt(String abfahrt, String zugnr, String gleis, String routeId) throws SQLException {
+        String query = "INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values (\'"+abfahrt+"\',\'"+zugnr+"\',"+Integer.parseInt(gleis)+
+                ",\'"+routeId+"\')";
+        statement.executeUpdate(query);
+    }
+
 }

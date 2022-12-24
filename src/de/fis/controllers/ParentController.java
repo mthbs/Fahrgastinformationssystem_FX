@@ -61,7 +61,7 @@ public class ParentController {
     @FXML
     public void oeffneFahrplanverwaltung() {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("../../fxml/fahrplanverwaltung/Fahrplanverwaltung.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("../../fxml/fahrplanverwaltung/Fahrtenhinzufuegen.fxml"));
         try {
             fxmlLoader.load();
         } catch (IOException e) {

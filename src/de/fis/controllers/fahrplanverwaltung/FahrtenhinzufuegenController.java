@@ -22,7 +22,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class FahrplanverwaltungController extends ParentController implements Initializable {
+public class FahrtenhinzufuegenController extends ParentController implements Initializable {
 
     @FXML
     private Label lbl_title;

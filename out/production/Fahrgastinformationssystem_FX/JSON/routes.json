@@ -128,5 +128,14 @@
 "route_id" : "10000402",
 "ziel" : "Langen",
 "route" : ["F-Stresemannallee", "F-Louisa", "Neu-Isenburg", "Dreieich-Buchschlag","Langen-Flugsicherung"]
+},
+{
+  "route_id" : "10000501",
+  "ziel" : "Friedrichsdorf",
+  "route" : ["F-Lokalbahnhof", "F-Ostendstraße", "F-Konstablerwache", "F-Hauptwache","F-Taunusanlage","Frankfurt (Main) Hbf","F-Galluswarte","F-Messe","Frankfurt (Main) West","F-Rödelheim","Weißkirchen/ Steinbach","Stierstadt","Oberursel","Bad Homburg","Seulberg"]
+},{
+  "route_id" : "10000502",
+  "ziel" : "Bad Homburg",
+  "route" : ["F-Lokalbahnhof", "F-Ostendstraße", "F-Konstablerwache", "F-Hauptwache","F-Taunusanlage","Frankfurt (Main) Hbf","F-Galluswarte","F-Messe","Frankfurt (Main) West","F-Rödelheim","Weißkirchen/ Steinbach","Stierstadt","Oberursel"]
 }
 ]

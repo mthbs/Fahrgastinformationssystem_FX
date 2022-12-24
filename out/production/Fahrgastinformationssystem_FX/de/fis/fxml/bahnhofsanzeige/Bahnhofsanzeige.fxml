@@ -21,7 +21,7 @@
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#oeffneBahnhofsanzeige" text="Bahnhofsanzeige" />
                         <MenuItem mnemonicParsing="false" onAction="#oeffneVideoplayer" text="Videoplayer" />
-                        <MenuItem mnemonicParsing="false" onAction="#oeffneFahrplanverwaltung" text="Fahrplanverwaltung" />
+                        <MenuItem mnemonicParsing="false" onAction="#oeffneFahrplanverwaltung" text="Neue Fahrten hinzufügen"  />
                     </items>
                 </Menu>
             </menus>

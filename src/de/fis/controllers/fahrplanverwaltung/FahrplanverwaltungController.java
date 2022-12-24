@@ -1,5 +1,6 @@
 package de.fis.controllers.fahrplanverwaltung;
 
+import de.fis.addon.time.Time;
 import de.fis.controllers.ParentController;
 import de.fis.database.DBConnection;
 import javafx.fxml.FXML;
@@ -13,6 +14,8 @@ import javafx.scene.layout.HBox;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -76,7 +79,7 @@ public class FahrplanverwaltungController extends ParentController implements In
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        dba = new DBConnection("root","root");
+        dba = new DBConnection("root", "root");
 
         Set<String> allUsedLines = null;
         Set<String> allUsedZiele = null;
@@ -88,20 +91,20 @@ public class FahrplanverwaltungController extends ParentController implements In
             e.printStackTrace();
         }
 
-        for(String s : allUsedLines) {
+        for (String s : allUsedLines) {
             dropdown_linie.getItems().add(new MenuItem(s));
         }
-        for(String s : allUsedZiele) {
+        for (String s : allUsedZiele) {
             dropdown_ziel.getItems().add(new MenuItem(s));
         }
 
         input_zeit_von.setText("12:00:00");
-//        input_zeit_bis.setText("12:30:00");
-//        input_zeit_takt.setText("30");
+        //        input_zeit_bis.setText("12:30:00");
+        //        input_zeit_takt.setText("30");
     }
 
     @FXML
-    private void btnFreeFormClicked(){
+    private void btnFreeFormClicked() {
         input_linie.setText("");
         input_ziel.setText("");
         input_zeit_von.setText("");
@@ -111,19 +114,22 @@ public class FahrplanverwaltungController extends ParentController implements In
     }
 
     @FXML
-    private boolean btnProofSyntaxClicked(){
-        if(input_linie.getText().length() > 0 && input_ziel.getText().length() > 0 && input_zeit_von.getText().length() > 0 && input_route_id.getText().length() == 8){
+    private boolean btnProofSyntaxClicked() {
+        if (input_linie.getText().length() > 0 && input_ziel.getText().length() > 0 && input_zeit_von.getText()
+                .length() > 0 && input_route_id.getText().length() == 8) {
 
             // Zeit Regex:
-            if(!regexIsValid(input_zeit_von.getText(),"\\d{2}:\\d{2}:\\d{2}") || !regexIsValid(input_route_id.getText(),"\\d{8}") || !regexIsValid(input_gleis.getText(),"\\d{1}")){
+            if (!regexIsValid(input_zeit_von.getText(), "\\d{2}:\\d{2}:\\d{2}") || !regexIsValid(input_route_id.getText(),
+                    "\\d{8}") || !regexIsValid(input_gleis.getText(), "\\d{1}")) {
                 System.out.println("Syntax is not correct");
                 return false;
             }
-            if(input_zeit_bis.getText().isBlank() || input_zeit_takt.getText().isBlank()) {
+            if (input_zeit_bis.getText().isBlank() || input_zeit_takt.getText().isBlank()) {
                 System.out.println("Syntax is correct for single trip");
                 singleTrip = true;
             } else {
-                if(!regexIsValid(input_zeit_bis.getText(),"\\d{2}:\\d{2}:\\d{2}") || !regexIsValid(input_zeit_takt.getText(),"\\d{0,3}")){
+                if (!regexIsValid(input_zeit_bis.getText(), "\\d{2}:\\d{2}:\\d{2}") || !regexIsValid(input_zeit_takt.getText(),
+                        "\\d{0,3}")) {
                     System.out.println("Syntax is not correct");
                     return false;
                 }
@@ -137,7 +143,7 @@ public class FahrplanverwaltungController extends ParentController implements In
         return true;
     }
 
-    private boolean regexIsValid(String text, String regex){
+    private boolean regexIsValid(String text, String regex) {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text);
         return matcher.find();
@@ -152,10 +158,20 @@ public class FahrplanverwaltungController extends ParentController implements In
 
     @FXML
     private void btnAddFormClicked() throws SQLException {
-        if(btnProofSyntaxClicked()){
-            dba.createNewAbfahrt(input_zeit_von.getText(),input_linie.getText(),input_gleis.getText(),input_route_id.getText());
+        if (btnProofSyntaxClicked()) {
+            if (input_zeit_bis.getText().isBlank() || input_zeit_takt.getText().isBlank()) {
+                dba.createNewAbfahrt(input_zeit_von.getText(), input_linie.getText(), input_gleis.getText(), input_route_id.getText());
+            } else {
+                Time timeVon = new Time(input_zeit_von.getText());
+                Time timeBis = new Time(input_zeit_bis.getText());
+                List<Time> timeList = timeVon.incrementList(timeVon, timeBis, Integer.parseInt(input_zeit_takt.getText()));
+                for(Time t : timeList){
+                    System.out.println("Neue Abfahrt ("+input_linie.getText()+"): " + t);
+                    dba.createNewAbfahrt(t.toString(), input_linie.getText(), input_gleis.getText(), input_route_id.getText());
+                }
+            }
         } else {
-            lbl_title.setText(lbl_title.getText()+"(!)");
+            lbl_title.setText(lbl_title.getText() + "(!)");
         }
     }
 

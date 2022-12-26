@@ -77,4 +77,9 @@ public class Abfahrt {
     public void setRoute(final Route route) {
         this.route = route;
     }
+
+    @Override
+    public String toString() {
+        return "Abfahrt{" + "id='" + id + '\'' + ", abfahrt=" + abfahrt + ", zugnr='" + zugnr + '\'' + ", gleis='" + gleis + '\'' + ", routeId='" + routeId + '\'' + ", route=" + route + '}';
+    }
 }

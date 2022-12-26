@@ -1,4 +1,4 @@
-package de.fis.controllers.fahrplanverwaltung;
+package de.fis.controllers.verwaltung.hinzufuegen;
 
 import de.fis.addon.time.Time;
 import de.fis.controllers.ParentController;

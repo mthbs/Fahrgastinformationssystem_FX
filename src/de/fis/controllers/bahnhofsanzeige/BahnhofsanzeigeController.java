@@ -9,7 +9,6 @@ import de.fis.model.Abfahrt;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -175,7 +174,7 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
         // DB Connection
         DBConnection dba = new DBConnection("root", "root");
         abfahrtList.clear();
-        abfahrtList = dba.getNextSix(time);
+        abfahrtList = dba.getAbfahrten(time,6);
         fillRow(0, lbl_time1, lbl_znr1, lbl_gleis1, lbl_ziel1, txt_route1);
         fillRow(1, lbl_time2, lbl_znr2, lbl_gleis2, lbl_ziel2, txt_route2);
         fillRow(2, lbl_time3, lbl_znr3, lbl_gleis3, lbl_ziel3, txt_route3);

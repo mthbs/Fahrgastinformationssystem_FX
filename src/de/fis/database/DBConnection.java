@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.SQLOutput;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -29,26 +28,18 @@ public class DBConnection {
         establishConnection();
     }
 
-    private void establishConnection() {
-        try {
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/activeworkbench?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-                    username, password);
-            statement = connection.createStatement();
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
+    public List<Abfahrt> getAbfahrten(Time time, int limit) throws SQLException {
+        String query = null;
+        if(limit > 0 && time != null) {
+            query = new String(" SELECT DISTINCT * FROM activeworkbench.abfahrt where abfahrt > \'" + time.getCurrentTime(true) + "\' order by" + " abfahrt limit " + limit);
+        } else {
+            query = new String(" SELECT DISTINCT * FROM activeworkbench.abfahrt ORDER BY abfahrt ");
         }
-    }
-
-    public List<Abfahrt> getNextSix(Time time) throws SQLException {
-        ResultSet resultSet =
-                statement.executeQuery(" SELECT DISTINCT * FROM activeworkbench.abfahrt where abfahrt > \'" + time.getCurrentTime(
-                true) + "\' order by" + " abfahrt limit 6");
+        ResultSet resultSet = statement.executeQuery(query);
         List<Abfahrt> abfahrtList = new ArrayList<>();
         while (resultSet.next()) {
-            Abfahrt abfahrt = new Abfahrt(resultSet.getString("abfahrt_id"), new Time(resultSet.getString("abfahrt")), resultSet.getString(
-                    "zugnr"),
-                    resultSet.getString("gleis"), resultSet.getString("route_id"));
+            Abfahrt abfahrt = new Abfahrt(resultSet.getString("abfahrt_id"), new Time(resultSet.getString("abfahrt")),
+                    resultSet.getString("zugnr"), resultSet.getString("gleis"), resultSet.getString("route_id"));
             abfahrtList.add(abfahrt);
         }
         return abfahrtList;
@@ -60,8 +51,39 @@ public class DBConnection {
         while (resultSet.next()) {
             res = resultSet.getString("ziel");
         }
-        System.out.println("res: " + res);
         return res;
+    }
+
+    public void createZielIfNotExists(String name) throws SQLException {
+        boolean alreadyExists = false;
+        ResultSet resultSet = statement.executeQuery(" SELECT DISTINCT halteName FROM activeworkbench.haltepunkt ");
+        while (resultSet.next()) {
+            if (name.equals(resultSet.getString("halteName"))) {
+                alreadyExists = true;
+            }
+        }
+        // create new entry
+        if (!alreadyExists) {
+            String query = " insert into activeworkbench.haltepunkt (halteName) values (\'" + name + "\') ";
+            statement.executeUpdate(query);
+        }
+    }
+
+    public void createNewAbfahrt(String abfahrt, String zugnr, String gleis, String routeId) throws SQLException {
+        String query = "INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values (\'" + abfahrt + "\',\'" + zugnr + "\'," + Integer.parseInt(
+                gleis) + ",\'" + routeId + "\')";
+        statement.executeUpdate(query);
+    }
+
+    private void establishConnection() {
+        try {
+            Connection connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/activeworkbench?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+                    username, password);
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     public Set<String> getAllUsedLines() throws SQLException {
@@ -80,27 +102,6 @@ public class DBConnection {
             allUsedZiele.add(resultSet.getString("halteName"));
         }
         return allUsedZiele;
-    }
-
-    public void createZielIfNotExists(String name) throws SQLException {
-        boolean alreadyExists = false;
-        ResultSet resultSet = statement.executeQuery(" SELECT DISTINCT halteName FROM activeworkbench.haltepunkt ");
-        while (resultSet.next()) {
-            if(name.equals(resultSet.getString("halteName"))){
-                alreadyExists = true;
-            }
-        }
-        // create new entry
-        if(!alreadyExists) {
-            String query = " insert into activeworkbench.haltepunkt (halteName) values (\'" + name + "\') ";
-            statement.executeUpdate(query);
-        }
-    }
-
-    public void createNewAbfahrt(String abfahrt, String zugnr, String gleis, String routeId) throws SQLException {
-        String query = "INSERT INTO Abfahrt (abfahrt,zugnr,gleis,route_id) values (\'"+abfahrt+"\',\'"+zugnr+"\',"+Integer.parseInt(gleis)+
-                ",\'"+routeId+"\')";
-        statement.executeUpdate(query);
     }
 
 }

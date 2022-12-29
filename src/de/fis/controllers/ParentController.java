@@ -8,7 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 
 public class ParentController {
@@ -17,11 +19,31 @@ public class ParentController {
     @FXML
     protected Label lbl_signature;
 
+    protected File cssFile = new File("src/de/fis/style/root.css");
+
 
     @FXML
-    void oeffneBahnhofsanzeige(ActionEvent event) {
+    void oeffneBahnhofsanzeige(ActionEvent event) throws MalformedURLException {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("../../fxml/bahnhofsanzeige/Bahnhofsanzeige.fxml"));
+        fxmlLoader.setLocation(new File("src/de/fis/fxml/bahnhofsanzeige/Bahnhofsanzeige.fxml").toURI().toURL());
+        doOpenCloseOperations(fxmlLoader);
+    }
+
+    @FXML
+    private void oeffneVideoplayer() throws MalformedURLException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(new File("src/de/fis/fxml/videoplayer/Videoplayer.fxml").toURI().toURL());
+        doOpenCloseOperations(fxmlLoader);
+    }
+
+    @FXML
+    public void oeffneFahrplanverwaltung() throws MalformedURLException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(new File("src/de/fis/fxml/verwaltung/hinzufuegen/Fahrtenhinzufuegen.fxml").toURI().toURL());
+        doOpenCloseOperations(fxmlLoader);
+    }
+
+    private void doOpenCloseOperations(FXMLLoader fxmlLoader) throws MalformedURLException {
         try {
             fxmlLoader.load();
         } catch (IOException e) {
@@ -30,52 +52,11 @@ public class ParentController {
         }
         Parent root = fxmlLoader.getRoot();
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("../../style/root.css").toExternalForm());
+        scene.getStylesheets().add(cssFile.toURI().toURL().toExternalForm());
         Stage openStage = new Stage();
         Stage closeStage = (Stage) lbl_signature.getScene().getWindow();
         closeStage.close();
         openStage.setScene(scene);
         openStage.show();
     }
-
-    @FXML
-    private void oeffneVideoplayer() {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("../../fxml/videoplayer/Videoplayer.fxml"));
-        try {
-            fxmlLoader.load();
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-            e.printStackTrace();
-        }
-        Parent root = fxmlLoader.getRoot();
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("../../style/root.css").toExternalForm());
-        Stage openStage = new Stage();
-        Stage closeStage = (Stage) lbl_signature.getScene().getWindow();
-        closeStage.close();
-        openStage.setScene(scene);
-        openStage.show();
-    }
-
-    @FXML
-    public void oeffneFahrplanverwaltung() {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("../../fxml/fahrplanverwaltung/Fahrtenhinzufuegen.fxml"));
-        try {
-            fxmlLoader.load();
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-            e.printStackTrace();
-        }
-        Parent root = fxmlLoader.getRoot();
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("../../style/root.css").toExternalForm());
-        Stage openStage = new Stage();
-        Stage closeStage = (Stage) lbl_signature.getScene().getWindow();
-        closeStage.close();
-        openStage.setScene(scene);
-        openStage.show();
-    }
-
 }

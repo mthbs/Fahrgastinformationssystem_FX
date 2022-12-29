@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 
 public class VideoplayerController extends ParentController {
@@ -86,7 +87,7 @@ public class VideoplayerController extends ParentController {
     }
 
     @FXML
-    void stopButtonTapped(ActionEvent event) {
+    void stopButtonTapped(ActionEvent event) throws MalformedURLException {
         // Neuer Controller: ExitVideoplayerController
         if (mediaPlayer != null) {
             mediaPlayer.stop();
@@ -102,6 +103,7 @@ public class VideoplayerController extends ParentController {
         }
         Parent root = fxmlLoader.getRoot();
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(cssFile.toURI().toURL().toExternalForm());
         Stage stage = new Stage();
 
         stage.setScene(scene);

@@ -1,6 +1,7 @@
 package de.fis.model;
 
 import de.fis.database.DBConnection;
+import de.fis.database.JSONConnection;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,21 +13,14 @@ public class Route {
 
     private String zielbf;
 
-    private String[] halte;
-
     public Route(final String routeId) throws SQLException {
         this.routeId = routeId;
         loadZielbf();
-        loadHalte();
     }
 
     private void loadZielbf() throws SQLException {
         DBConnection dba = new DBConnection("root", "root");
         zielbf = dba.getZielbf(routeId);
-    }
-
-    private void loadHalte() {
-        // JSON
     }
 
     public String getRouteId() {
@@ -45,7 +39,4 @@ public class Route {
         this.zielbf = zielbf;
     }
 
-    public String[] getHalte() {
-        return halte;
-    }
 }

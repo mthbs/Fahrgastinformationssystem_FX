@@ -1,5 +1,6 @@
 package de.fis.controllers.bahnhofsanzeige;
 
+import de.fis.addon.audio.AnsagenCreator;
 import de.fis.addon.time.CurrentTime;
 import de.fis.addon.time.Time;
 import de.fis.controllers.ParentController;
@@ -14,6 +15,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import marytts.exceptions.MaryConfigurationException;
+import marytts.exceptions.SynthesisException;
 
 import java.io.IOException;
 import java.net.URL;
@@ -223,5 +226,31 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
         }), new KeyFrame(Duration.millis(25)));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+    }
+
+    @FXML
+    private void playAnsage() throws MaryConfigurationException, SynthesisException {
+        List<Abfahrt> festerStand = abfahrtList;
+        StringBuilder sb = new StringBuilder("Ihre nächsten Anschlüsse:    ");
+        for(Abfahrt a : festerStand) {
+            StringBuilder innerBuilder = new StringBuilder();
+            innerBuilder.append(a.getZugnr() + " nach " + a.getRoute().getZielbf());
+            JSONConnection zwischenhalte = new JSONConnection();
+            String[] halte = zwischenhalte.getTripForId(a.getRouteId());
+            if(halte.length>0){
+                innerBuilder.append(" über " + halte[0]);
+            }
+
+//            if(a.getRoute().getHalte() != null){
+//                String[] tmp = a.getRoute().getHalte();
+//                innerBuilder.append(" über " + tmp[0]);
+//            }
+            innerBuilder.append(" um " + a.getAbfahrt().getHour()
+                    + " Uhr " + a.getAbfahrt().getMinute() + " von Gleis " + a.getGleis()+ "   ");
+            sb.append(innerBuilder);
+        }
+        AnsagenCreator ace = new AnsagenCreator();
+        ace.spieleText(sb.toString());
+
     }
 }

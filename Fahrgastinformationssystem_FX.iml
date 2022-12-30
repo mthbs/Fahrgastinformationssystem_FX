@@ -11,5 +11,104 @@
     <orderEntry type="library" exported="" name="lib" level="project" />
     <orderEntry type="library" name="mysql-connector-j-8.0.31" level="project" />
     <orderEntry type="library" name="jackson-2.14" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/OneDrive - stud.fra-uas.de/Dokumente/JavaLibraries/marytts-5.0/marytts-5.0/lib/marytts-client-5.0-jar-with-dependencies.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/OneDrive - stud.fra-uas.de/Dokumente/JavaLibraries/marytts-5.0/marytts-5.0/lib/marytts-lang-de-5.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/OneDrive - stud.fra-uas.de/Dokumente/JavaLibraries/marytts-5.0/marytts-5.0/lib/marytts-lang-en-5.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/OneDrive - stud.fra-uas.de/Dokumente/JavaLibraries/marytts-5.0/marytts-5.0/lib/marytts-lang-it-5.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/OneDrive - stud.fra-uas.de/Dokumente/JavaLibraries/marytts-5.0/marytts-5.0/lib/marytts-lang-ru-5.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/OneDrive - stud.fra-uas.de/Dokumente/JavaLibraries/marytts-5.0/marytts-5.0/lib/marytts-lang-sv-5.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/OneDrive - stud.fra-uas.de/Dokumente/JavaLibraries/marytts-5.0/marytts-5.0/lib/marytts-lang-te-5.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/OneDrive - stud.fra-uas.de/Dokumente/JavaLibraries/marytts-5.0/marytts-5.0/lib/marytts-lang-tr-5.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/OneDrive - stud.fra-uas.de/Dokumente/JavaLibraries/marytts-5.0/marytts-5.0/lib/marytts-server-5.0-jar-with-dependencies.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/OneDrive - stud.fra-uas.de/Dokumente/JavaLibraries/marytts-5.0/marytts-5.0/lib/voice-cmu-slt-hsmm-5.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/OneDrive - stud.fra-uas.de/Dokumente/JavaLibraries/marytts-5.0/marytts-5.0/lib/voice-bits1-hsmm-5.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

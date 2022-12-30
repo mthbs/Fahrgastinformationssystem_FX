@@ -18,9 +18,9 @@ public class Main extends Application {
     @Override
     public void start(final Stage stage) {
         try {
-//            Parent root = FXMLLoader.load(getClass().getResource("fxml/bahnhofsanzeige/Bahnhofsanzeige.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("fxml/bahnhofsanzeige/Bahnhofsanzeige.fxml"));
 //            Parent root = FXMLLoader.load(getClass().getResource("fxml/verwaltung/hinzufuegen/Fahrtenhinzufuegen.fxml"));
-            Parent root = FXMLLoader.load(getClass().getResource("fxml/verwaltung/bearbeiten/Fahrtenverwaltung.fxml"));
+//            Parent root = FXMLLoader.load(getClass().getResource("fxml/verwaltung/bearbeiten/Fahrtenverwaltung.fxml"));
             //            Parent root = FXMLLoader.load(getClass().getResource("fxml/videoplayer/Videoplayer.fxml"));
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("style/root.css").toExternalForm());

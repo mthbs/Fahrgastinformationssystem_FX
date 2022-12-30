@@ -5,11 +5,14 @@ import de.fis.addon.time.CurrentTime;
 import de.fis.addon.time.Time;
 import de.fis.controllers.ParentController;
 import de.fis.database.DBConnection;
-import de.fis.database.JSONConnection;
+import de.fis.controllers.zwischenhalte.ZwischenhalteController;
 import de.fis.model.Abfahrt;
 import javafx.animation.Animation;
+import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -28,7 +31,9 @@ import java.util.ResourceBundle;
 
 public class BahnhofsanzeigeController extends ParentController implements Initializable {
 
-    List<Abfahrt> abfahrtList = new ArrayList<>();
+    private List<Abfahrt> abfahrtList = new ArrayList<>();
+
+    private String bahnhof;
 
     @FXML
     private Label labelTime;
@@ -135,8 +140,9 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
     @Override
     public void initialize(final URL url, final ResourceBundle resourceBundle) {
 
+        bahnhof = "Frankfurt (Main) Süd";
+
         time = new Time(new CurrentTime().currentTime());
-//        time = new Time("14:00:00");
 
         labelTime.setText(time.getCurrentTime(true));
 
@@ -148,7 +154,7 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
 
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
-        labelStation.setText("Abfahrt Frankfurt(Main) Süd");
+        labelStation.setText("Abfahrt " + bahnhof);
         try {
             ladeAbfahrten(time);
         } catch (SQLException e) {
@@ -184,12 +190,11 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
         fillRow(3, lbl_time4, lbl_znr4, lbl_gleis4, lbl_ziel4, txt_route4);
         fillRow(4, lbl_time5, lbl_znr5, lbl_gleis5, lbl_ziel5, txt_route5);
         fillRow(5, lbl_time6, lbl_znr6, lbl_gleis6, lbl_ziel6, txt_route6);
-        laufschrift(txt_infos);
 
     }
 
     private String[] includeHalte(int index, String routeId) throws IOException {
-        JSONConnection jsa = new JSONConnection();
+        ZwischenhalteController jsa = new ZwischenhalteController();
         jsa.createList();
         return jsa.getTripForId(routeId);
     }
@@ -212,20 +217,17 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
             route = "";
         }
         txt_route.setText(route);
-        laufschrift(txt_route);
+        laufschrift(txt_route,15);
     }
 
-    private void laufschrift(Text txt_route) {
-        int statt500 = 3 * txt_route.toString().length();
-        txt_route.setTranslateX(150);
-        Timeline timeline = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-            txt_route.setTranslateX(txt_route.getTranslateX() - 4);
-            if (txt_route.getTranslateX() <= -statt500) {
-                txt_route.setTranslateX(150);
-            }
-        }), new KeyFrame(Duration.millis(25)));
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
+    private void laufschrift(Text txt_route, int seconds){
+        TranslateTransition animation = new TranslateTransition();
+        animation.setDuration(Duration.seconds(seconds));
+        animation.setFromX(0);
+        animation.setToX(-(6*txt_route.getText().length()));
+        animation.setCycleCount(Animation.INDEFINITE);
+        animation.setNode(txt_route);
+        animation.play();
     }
 
     @FXML
@@ -235,16 +237,11 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
         for(Abfahrt a : festerStand) {
             StringBuilder innerBuilder = new StringBuilder();
             innerBuilder.append(a.getZugnr() + " nach " + a.getRoute().getZielbf());
-            JSONConnection zwischenhalte = new JSONConnection();
+            ZwischenhalteController zwischenhalte = new ZwischenhalteController();
             String[] halte = zwischenhalte.getTripForId(a.getRouteId());
-            if(halte.length>0){
+            if(halte.length>0 && halte[0] != ""){
                 innerBuilder.append(" über " + halte[0]);
             }
-
-//            if(a.getRoute().getHalte() != null){
-//                String[] tmp = a.getRoute().getHalte();
-//                innerBuilder.append(" über " + tmp[0]);
-//            }
             innerBuilder.append(" um " + a.getAbfahrt().getHour()
                     + " Uhr " + a.getAbfahrt().getMinute() + " von Gleis " + a.getGleis()+ "   ");
             sb.append(innerBuilder);

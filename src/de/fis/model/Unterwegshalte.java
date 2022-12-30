@@ -14,36 +14,11 @@ public class Unterwegshalte {
     @JsonProperty("route")
     private String[] route;
 
-    public Unterwegshalte() {
-    }
-
-    public Unterwegshalte(final String routeId, final String ziel, final String[] route) {
-        this.routeId = routeId;
-        this.ziel = ziel;
-        this.route = route;
-    }
-
     public String getRouteId() {
         return routeId;
     }
 
-    public void setRouteId(final String routeId) {
-        this.routeId = routeId;
-    }
-
-    public String getZiel() {
-        return ziel;
-    }
-
-    public void setZiel(final String ziel) {
-        this.ziel = ziel;
-    }
-
     public String[] getRoute() {
         return route;
-    }
-
-    public void setRoute(final String[] route) {
-        this.route = route;
     }
 }

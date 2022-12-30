@@ -1,10 +1,8 @@
 package de.fis.model;
 
 import de.fis.database.DBConnection;
-import de.fis.database.JSONConnection;
 
 import java.sql.SQLException;
-import java.util.List;
 
 
 public class Route {
@@ -27,16 +25,8 @@ public class Route {
         return routeId;
     }
 
-    public void setRouteId(final String routeId) {
-        this.routeId = routeId;
-    }
-
     public String getZielbf() {
         return zielbf;
-    }
-
-    public void setZielbf(final String zielbf) {
-        this.zielbf = zielbf;
     }
 
 }

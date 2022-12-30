@@ -1,4 +1,4 @@
-package de.fis.database;
+package de.fis.controllers.zwischenhalte;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.fis.model.Unterwegshalte;
@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class JSONConnection {
+public class ZwischenhalteController {
 
     private static ObjectMapper objectMapper = new ObjectMapper();
 

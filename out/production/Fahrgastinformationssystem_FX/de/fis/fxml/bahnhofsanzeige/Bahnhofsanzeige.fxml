@@ -21,7 +21,7 @@
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#oeffneBahnhofsanzeige" text="Bahnhofsanzeige" />
                         <MenuItem mnemonicParsing="false" onAction="#oeffneVideoplayer" text="Videoplayer" />
-                        <MenuItem mnemonicParsing="false" onAction="#oeffneFahrplanverwaltung" text="Neue Fahrten hinzufügen"  />
+                        <MenuItem mnemonicParsing="false" onAction="#oeffneFahrplanverwaltung" text="Neue Fahrten hinzufügen" />
                     </items>
                 </Menu>
             </menus>
@@ -317,7 +317,7 @@
                 </Pane>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                     <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Durchsage" textAlignment="CENTER">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#playAnsage" prefHeight="30.0" prefWidth="80.0" text="Durchsage" textAlignment="CENTER">
                             <HBox.margin>
                                 <Insets left="10.0" right="10.0" />
                             </HBox.margin>

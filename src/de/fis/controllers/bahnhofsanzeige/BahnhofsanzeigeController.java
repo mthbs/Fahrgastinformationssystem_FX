@@ -232,7 +232,7 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
     }
 
     @FXML
-    private void playAnsage() throws MaryConfigurationException, SynthesisException {
+    private void playAnsage() throws MaryConfigurationException, SynthesisException, IOException {
         List<Abfahrt> festerStand = abfahrtList;
         StringBuilder sb = new StringBuilder("Ihre nächsten Anschlüsse:    ");
         for(Abfahrt a : festerStand) {

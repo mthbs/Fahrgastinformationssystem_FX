@@ -16,18 +16,18 @@ public class ZwischenhalteController {
 
     public void createList() throws IOException {
         allConnections = objectMapper.readValue(new File(
-                        "C:\\Users\\derma\\OneDrive\\Documents\\Java " + "Projects\\Fahrgastinformationssystem_FX\\resources\\JSON\\routes.json"),
+                        "C:\\Users\\derma\\OneDrive\\Documents\\Java Projects\\Fahrgastinformationssystem_FX2\\resources\\JSON\\routes.json"),
                 Unterwegshalte[].class);
     }
 
 
-    public String[] getTripForId(String id) {
+    public String[] getTripForId(String id) throws IOException {
         for (Unterwegshalte u : allConnections) {
             if (u.getRouteId().equals(id)) {
                 return u.getRoute();
             }
         }
-        return null;
+        return new String[0];
     }
 
 }

@@ -40,6 +40,7 @@ public class DBConnection {
     }
 
     public List<Abfahrt> getAbfahrten(String query) throws SQLException {
+        System.out.println("EXECUTED SELECT-QUERY: " + query);
         ResultSet resultSet = statement.executeQuery(query);
         List<Abfahrt> abfahrtList = new ArrayList<>();
         while (resultSet.next()) {

@@ -143,6 +143,7 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
         bahnhof = "Frankfurt (Main) Süd";
 
         time = new Time(new CurrentTime().currentTime());
+//        time = new Time("08:15:00");
 
         labelTime.setText(time.getCurrentTime(true));
 
@@ -164,7 +165,7 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
             System.err.println("IO Exception");
             e.printStackTrace();
         }
-        Timeline timelineMinute = new Timeline(new KeyFrame(Duration.seconds(30), ev -> {
+        Timeline timelineMinute = new Timeline(new KeyFrame(Duration.seconds(15), ev -> {
             try {
                 ladeAbfahrten(time);
             } catch (SQLException e) {

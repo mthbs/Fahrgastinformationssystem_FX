@@ -5,12 +5,15 @@ import de.fis.database.DBConnection;
 import de.fis.model.Abfahrt;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -29,19 +32,20 @@ public class FahrtenverwaltungController extends ParentController implements Ini
     private TableView<Abfahrt> table;
 
     @FXML
+    private TableColumn<Abfahrt, String> tblcol_id;
+
+    @FXML
     private TableColumn<Abfahrt, String> tblcol_abfahrt;
+
+    @FXML
+    private TableColumn<Abfahrt, String> tblcol_zugnr;
 
     @FXML
     private TableColumn<Abfahrt, String> tblcol_gleis;
 
     @FXML
-    private TableColumn<Abfahrt, String> tblcol_id;
-
-    @FXML
     private TableColumn<Abfahrt, String> tblcol_route;
 
-    @FXML
-    private TableColumn<Abfahrt, String> tblcol_zugnr;
 
 
     @Override

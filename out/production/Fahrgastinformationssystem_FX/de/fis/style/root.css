@@ -3,7 +3,8 @@
     -fx-color-label-visible: #f9f8f8;
     -fx-text-fill: #f9f8f8;
 }
-.label {
+
+.label, .menu .label, .menu-button .label, .text {
     -fx-color-label-visible: #f9f8f8;
     -fx-text-fill: #f9f8f8;
 }
@@ -12,20 +13,12 @@
     -fx-background-color: #ffff01;
 }
 
-.menu .label {
+.menu .label, .menu-button .label {
     -fx-color-label-visible: #000100;
     -fx-text-fill: #000100;
 }
 
-.menu-button .label {
-     -fx-color-label-visible: #000100;
-     -fx-text-fill: #000100;
- }
-
-
 .text {
-    -fx-color-label-visible: #f9f8f8;
-    -fx-text-fill: #f9f8f8;
     -fx-text-inner-color: #f9f8f8;
 }
 
@@ -46,4 +39,3 @@
     -fx-text-fill: #000100;
     -fx-text-alignment: center;
 }
-

@@ -37,13 +37,27 @@ public class ParentController {
     }
 
     @FXML
-    public void oeffneFahrplanverwaltung() throws MalformedURLException {
+    public void oeffneFahrtenhinzufuegen() throws MalformedURLException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(new File("src/de/fis/fxml/verwaltung/hinzufuegen/Fahrtenhinzufuegen.fxml").toURI().toURL());
         doOpenCloseOperations(fxmlLoader);
     }
 
-    private void doOpenCloseOperations(FXMLLoader fxmlLoader) throws MalformedURLException {
+    @FXML
+    public void oeffneFahrtenverwaltung() throws MalformedURLException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(new File("src/de/fis/fxml/verwaltung/bearbeiten/Fahrtenverwaltung.fxml").toURI().toURL());
+        doOpenCloseOperations(fxmlLoader);
+    }
+
+    @FXML
+    public void oeffneFahrtenloeschen() throws MalformedURLException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(new File("src/de/fis/fxml/verwaltung/bearbeiten/loeschen/Fahrtenloeschen.fxml").toURI().toURL());
+        doOpenCloseOperations(fxmlLoader);
+    }
+
+    protected void doOpenCloseOperations(FXMLLoader fxmlLoader) throws MalformedURLException {
         try {
             fxmlLoader.load();
         } catch (IOException e) {

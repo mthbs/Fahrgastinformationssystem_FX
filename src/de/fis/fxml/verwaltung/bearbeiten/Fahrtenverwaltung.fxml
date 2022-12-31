@@ -21,7 +21,9 @@
                 <items>
                     <MenuItem mnemonicParsing="false" onAction="#oeffneBahnhofsanzeige" text="Bahnhofsanzeige" />
                     <MenuItem mnemonicParsing="false" onAction="#oeffneVideoplayer" text="Videoplayer" />
-                    <MenuItem mnemonicParsing="false" onAction="#oeffneFahrplanverwaltung" text="Neue Fahrten hinzufügen" />
+                    <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenhinzufuegen" text="Neue Fahrten hinzufügen" />
+                    <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenverwaltung" text="Fahrten verwalten (alt)" />
+                    <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenloeschen" text="Fahrten verwalten" />
                 </items>
             </Menu>
         </menus>
@@ -53,7 +55,7 @@
                   <Insets bottom="25.0" />
                </VBox.margin>
                <children>
-                  <Button mnemonicParsing="false" text="Einträge löschen">
+                  <Button mnemonicParsing="false" onAction="#oeffneFahrtenloeschen" text="Einträge löschen">
                      <HBox.margin>
                         <Insets left="25.0" right="25.0" />
                      </HBox.margin>

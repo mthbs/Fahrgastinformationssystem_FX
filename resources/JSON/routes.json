@@ -137,5 +137,29 @@
   "route_id" : "10000502",
   "ziel" : "Bad Homburg",
   "route" : ["F-Lokalbahnhof", "F-Ostendstraße", "F-Konstablerwache", "F-Hauptwache","F-Taunusanlage","Frankfurt (Main) Hbf","F-Galluswarte","F-Messe","Frankfurt (Main) West","F-Rödelheim","Weißkirchen/ Steinbach","Stierstadt","Oberursel"]
+},{
+  "route_id" : "15159001",
+  "ziel" : "Berlin Ostbahnhof",
+  "route" : ["Fulda", "Kassel-Wilhelmshöhe", "Göttingen", "Hildesheim Hbf","Braunschweig Hbf","Berlin-Spandau","Berlin Hbf"]
+},{
+  "route_id" : "15099201",
+  "ziel" : "Berlin Ostbahnhof",
+  "route" : ["Hanau Hbf","Fulda", "Kassel-Wilhelmshöhe", "Göttingen", "Hildesheim Hbf","Braunschweig Hbf","Berlin-Spandau","Berlin Hbf"]
+},{
+  "route_id" : "15079201",
+  "ziel" : "Berlin Ostbahnhof",
+  "route" : ["Hanau Hbf","Fulda", "Kassel-Wilhelmshöhe", "Göttingen", "Hildesheim Hbf","Braunschweig Hbf","Wolfsburg Hbf","Berlin-Spandau","Berlin Hbf"]
+},{
+  "route_id" : "15169001",
+  "ziel" : "Berlin Ostbahnhof",
+  "route" : ["Hanau Hbf","Fulda", "Kassel-Wilhelmshöhe", "Göttingen", "Hildesheim Hbf","Braunschweig Hbf","Wolfsburg Hbf","Stendal Hbf","Berlin-Spandau","Berlin Hbf"]
+},{
+  "route_id" : "15077601",
+  "ziel" : "Oldenburg Hbf",
+  "route" : ["Hanau Hbf","Fulda", "Kassel-Wilhelmshöhe", "Göttingen", "Hannover Hbf","Bremen Hbf"]
+},{
+  "route_id" : "15107901",
+  "ziel" : "Stuttgart Hbf",
+  "route" : ["Darmstadt Hbf","Heidelberg Hbf"]
 }
 ]

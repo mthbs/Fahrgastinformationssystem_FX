@@ -29,12 +29,17 @@ public class DBConnection {
     }
 
     public List<Abfahrt> getAbfahrten(Time time, int limit) throws SQLException {
+        // int limit: limit=-1: Komplett, limit>0: anzahl nächster Fahrten
         String query = null;
         if(limit > 0 && time != null) {
             query = new String(" SELECT DISTINCT * FROM activeworkbench.abfahrt where abfahrt > \'" + time.getCurrentTime(true) + "\' order by" + " abfahrt limit " + limit);
         } else {
             query = new String(" SELECT DISTINCT * FROM activeworkbench.abfahrt ORDER BY abfahrt ");
         }
+        return getAbfahrten(query);
+    }
+
+    public List<Abfahrt> getAbfahrten(String query) throws SQLException {
         ResultSet resultSet = statement.executeQuery(query);
         List<Abfahrt> abfahrtList = new ArrayList<>();
         while (resultSet.next()) {
@@ -102,6 +107,10 @@ public class DBConnection {
             allUsedZiele.add(resultSet.getString("halteName"));
         }
         return allUsedZiele;
+    }
+
+    public void executeUpdateQuery(String query) throws SQLException {
+        statement.executeUpdate(query);
     }
 
 }

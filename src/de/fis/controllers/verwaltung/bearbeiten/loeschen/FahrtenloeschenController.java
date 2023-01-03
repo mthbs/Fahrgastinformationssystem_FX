@@ -106,25 +106,23 @@ public class FahrtenloeschenController extends ParentController implements Initi
                 query.append(" route_id = \'" + field_route.getText() + "\' ");
                 whereCounter++;
             }
-
-            query.append(" ORDER BY abfahrt ");
-            System.out.println(query.toString());
-            try {
-                tblcol_id.setCellValueFactory(new PropertyValueFactory<Abfahrt, String>("id"));
-                tblcol_abfahrt.setCellValueFactory(new PropertyValueFactory<Abfahrt, String>("abfahrt"));
-                tblcol_zugnr.setCellValueFactory(new PropertyValueFactory<Abfahrt, String>("zugnr"));
-                tblcol_gleis.setCellValueFactory(new PropertyValueFactory<Abfahrt, String>("gleis"));
-                tblcol_route.setCellValueFactory(new PropertyValueFactory<Abfahrt, String>("routeId"));
-                List<Abfahrt> abfahrtList = dba.getAbfahrten(query.toString());
-                table.setItems(FXCollections.observableList(abfahrtList));
-                if (abfahrtList.size() > 0) {
-                    btn_loeschen.setDisable(false);
-                }
-            } catch (SQLException e) {
-                System.err.println(e.getMessage());
-            }
         }
-
+        query.append(" ORDER BY abfahrt ");
+        try {
+            tblcol_id.setCellValueFactory(new PropertyValueFactory<Abfahrt, String>("id"));
+            tblcol_abfahrt.setCellValueFactory(new PropertyValueFactory<Abfahrt, String>("abfahrt"));
+            tblcol_zugnr.setCellValueFactory(new PropertyValueFactory<Abfahrt, String>("zugnr"));
+            tblcol_gleis.setCellValueFactory(new PropertyValueFactory<Abfahrt, String>("gleis"));
+            tblcol_route.setCellValueFactory(new PropertyValueFactory<Abfahrt, String>("routeId"));
+            System.out.println(query.toString());
+            List<Abfahrt> abfahrtList = dba.getAbfahrten(query.toString());
+            table.setItems(FXCollections.observableList(abfahrtList));
+            if (abfahrtList.size() > 0) {
+                btn_loeschen.setDisable(false);
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     @FXML

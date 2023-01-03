@@ -23,8 +23,8 @@ public class Main extends Application {
             //            Parent root = FXMLLoader.load(getClass().getResource("fxml/verwaltung/hinzufuegen/Fahrtenhinzufuegen.fxml"));
             //            Parent root = FXMLLoader.load(getClass().getResource("fxml/verwaltung/bearbeiten/Fahrtenverwaltung.fxml"));
             //            Parent root = FXMLLoader.load(getClass().getResource("fxml/videoplayer/Videoplayer.fxml"));
-//            Parent root = FXMLLoader.load(getClass().getResource("src/de/fis/fxml/verwaltung/hinzufuegen/routeZuordnen" +
-//                    "/ZuordnungBestaetigen.fxml"));
+//            Parent root = FXMLLoader.load(getClass().getResource("src/de/fis/fxml/verwaltung/hinzufuegen/routeVerwaltung" +
+//                    "/RouteVerwalten.fxml"));
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("style/root.css").toExternalForm());
             videoplayerAddon(scene, stage);

@@ -37,4 +37,4 @@
 {"route_id":"15107901","ziel":"Stuttgart Hbf","route":["Darmstadt Hbf","Heidelberg Hbf"]},
 {"route_id":"15124901","ziel":"Berlin Gesundbrunnen","route":["Fulda","Bad Hersfeld","Eisenach","Gotha","Erfurt Hbf","Halle (Saale) Hbf","Berlin Südkreuz","Berlin Hbf"]},
 {"route_id":"15124401","ziel":"Berlin Hbf","route":["Fulda","Bad Hersfeld","Eisenach","Gotha","Erfurt Hbf","Halle (Saale) Hbf","Berlin Südkreuz"]},
-{"route_id":"00001212","ziel":"Testbahnhof","route":["Test1","Test2","Test3"]}]
+{"route_id":"00000014","ziel":"Testbahnhof","route":["Offenbach Hbf","Hanau Hbf","Kahl (Main)","Bebra","Bamberg","Babenhausen","Frankfurt (Main) Flughafen Regionalbahnhof","Berlin Alexanderplatz","Berlin Südkreuz","Stuttgart Hbf","Groß-Karben","Rüsselsheim Opelwerk"]}]

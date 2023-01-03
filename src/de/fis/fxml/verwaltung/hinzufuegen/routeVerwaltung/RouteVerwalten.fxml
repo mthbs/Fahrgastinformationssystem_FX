@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fis.controllers.verwaltung.hinzufuegen.routeZuordnung.ZuordnungBestaetigenController">
+<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fis.controllers.verwaltung.hinzufuegen.routeVerwaltung.RouteVerwaltenController">
     <MenuBar fx:id="menubar" prefHeight="25.0" prefWidth="800.0" style="visibility: true;" AnchorPane.bottomAnchor="775.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <Menu fx:id="main_menu" mnemonicParsing="false" text="Bahnhofsanzeige">
             <MenuItem mnemonicParsing="false" onAction="#oeffneBahnhofsanzeige" text="Bahnhofsanzeige" />
@@ -86,54 +86,11 @@
                     </font>
                 </Label>
             </HBox>
-         <ScrollPane fx:id="scrollPane" prefHeight="200.0">
+         <ScrollPane fx:id="scrollPane" prefHeight="400.0">
            <content>
-             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="700.0">
+             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="2000.0">
                   <children>
-                     <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                        <children>
-                           <Label fx:id="lbl_halte_title" alignment="CENTER" prefHeight="32.0" prefWidth="700.0" text="Zwischenhalte hinzufügen:" textAlignment="CENTER">
-                              <font>
-                                 <Font name="System Bold" size="16.0" />
-                              </font>
-                           </Label>
-                           <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="200.0">
-                              <children>
-                                 <Label fx:id="lbl_halte" prefWidth="100.0" text="Haltepunkt1:">
-                                    <font>
-                                       <Font size="14.0" />
-                                    </font>
-                                    <HBox.margin>
-                                       <Insets left="35.0" />
-                                    </HBox.margin>
-                                 </Label>
-                                 <MenuButton fx:id="dropdown_ziel" mnemonicParsing="false" prefWidth="150.0" text="MenuButton">
-                                    <font>
-                                       <Font size="14.0" />
-                                    </font>
-                                    <HBox.margin>
-                                       <Insets right="50.0" />
-                                    </HBox.margin>
-                                 </MenuButton>
-                                 <TextField fx:id="input_ziel" prefWidth="250.0">
-                                    <font>
-                                       <Font size="14.0" />
-                                    </font>
-                                    <HBox.margin>
-                                       <Insets right="50.0" />
-                                    </HBox.margin>
-                                 </TextField>
-                                 <Button mnemonicParsing="false" onAction="#btn_plusClicked" text="+">
-                                    <font>
-                                       <Font size="14.0" />
-                                    </font>
-                                    <HBox.margin>
-                                       <Insets right="35.0" />
-                                    </HBox.margin>
-                                 </Button>
-                              </children>
-                           </HBox>
-                        </children>
+                     <VBox fx:id="vbox" prefHeight="200.0" prefWidth="2000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      </VBox>
                   </children>
                </AnchorPane>

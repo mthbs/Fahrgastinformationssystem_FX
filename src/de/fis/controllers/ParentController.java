@@ -1,6 +1,6 @@
 package de.fis.controllers;
 
-import de.fis.controllers.verwaltung.hinzufuegen.routeZuordnung.ZuordnungBestaetigenController;
+import de.fis.controllers.verwaltung.hinzufuegen.routeVerwaltung.RouteVerwaltenController;
 import de.fis.database.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -67,14 +67,14 @@ public class ParentController {
 
     public void oeffneZuordnungBestaetigen(String routeId, String zielbf) throws MalformedURLException {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(new File("src/de/fis/fxml/verwaltung/hinzufuegen/routeZuordnen/ZuordnungBestaetigen.fxml").toURI().toURL());
+        fxmlLoader.setLocation(new File("src/de/fis/fxml/verwaltung/hinzufuegen/routeVerwaltung/RouteVerwalten.fxml").toURI().toURL());
         try {
             fxmlLoader.load();
         } catch (IOException e) {
             System.err.println(e.getMessage());
             e.printStackTrace();
         }
-        ZuordnungBestaetigenController new_controller = fxmlLoader.getController();
+        RouteVerwaltenController new_controller = fxmlLoader.getController();
         new_controller.setLbl_routeId(routeId);
         new_controller.setLbl_zielbf(zielbf);
 

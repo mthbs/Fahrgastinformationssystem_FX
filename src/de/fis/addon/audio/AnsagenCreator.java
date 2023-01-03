@@ -17,7 +17,7 @@ public class AnsagenCreator {
         marytts.setLocale(Locale.GERMAN);
         AudioPlayer player = new AudioPlayer();
         text = text.replace("RE", "RE ").replace("RB", "RB ").replace("ICE", "ICE ").replace("FLX", "FLX ");
-        text = text.replace("Hbf", "Hauptbahnhof").replace("(Main)", "").replace("(Taunus)", "");
+        text = text.replace("Hbf", "Hauptbahnhof").replace("(Main)", "").replace("(Taunus)", "").replace("(Odenwald)","");
         text = text.replace("F-", "Frankfurt ");
         player.setAudio(marytts.generateAudio(text));
         player.start();

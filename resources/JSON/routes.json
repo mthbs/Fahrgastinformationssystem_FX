@@ -37,4 +37,10 @@
 {"route_id":"15107901","ziel":"Stuttgart Hbf","route":["Darmstadt Hbf","Heidelberg Hbf"]},
 {"route_id":"15124901","ziel":"Berlin Gesundbrunnen","route":["Fulda","Bad Hersfeld","Eisenach","Gotha","Erfurt Hbf","Halle (Saale) Hbf","Berlin Südkreuz","Berlin Hbf"]},
 {"route_id":"15124401","ziel":"Berlin Hbf","route":["Fulda","Bad Hersfeld","Eisenach","Gotha","Erfurt Hbf","Halle (Saale) Hbf","Berlin Südkreuz"]},
-{"route_id":"00001212","ziel":"Testbahnhof","route":["Test1","Test2","Test3"]}]
+{"route_id":"00000014","ziel":"Testbahnhof","route":["Offenbach Hbf","Hanau Hbf","Kahl (Main)","Bebra","Bamberg","Babenhausen","Frankfurt (Main) Flughafen Regionalbahnhof","Berlin Alexanderplatz","Berlin Südkreuz","Stuttgart Hbf","Groß-Karben","Rüsselsheim Opelwerk"]},
+{"route_id":"12008501","ziel":"Erbach (Odenwald)","route":["Offenbach Hbf","Hanau Hbf","Hainburg Hainstadt","Seligenstadt","Babenhausen","Groß-Umstadt Mitte","Groß-Umstadt Wiebelsbach","Höchst (Odenwald)","Bad König","Michelstadt"]},
+{"route_id":"12008502","ziel":"Groß-Umstadt Wiebelsbach","route":["Offenbach Hbf","Hanau Hbf","Hainburg Hainstadt","Seligenstadt","Babenhausen","Groß-Umstadt Mitte"]},
+{"route_id":"12008503","ziel":"Babenhausen","route":["Offenbach Hbf","Hanau Hbf","Hainburg Hainstadt","Seligenstadt"]},
+{"route_id":"12008504","ziel":"Groß-Umstadt Wiebelsbach","route":["Hanau Hbf","Hanau Klein-Auheim","Hainburg Hainstadt","Seligenstadt","Mainhausen Zellhausen","Babenhausen","Babenhausen Langstadt","Groß-Umstadt Klein-Umstadt","Groß-Umstadt Mitte"]},
+{"route_id":"12008505","ziel":"Groß-Umstadt Wiebelsbach","route":["Frankfurt (Main) Ost","Maintal Ost","Hanau West","Hanau Hbf","Hanau Klein-Auheim","Hainburg Hainstadt","Seligenstadt","Mainhausen Zellhausen","Babenhausen","Babenhausen Langstadt","Groß-Umstadt Klein-Umstadt","Groß-Umstadt Mitte"]},
+{"route_id":"12008506","ziel":"Groß-Umstadt Wiebelsbach","route":["Offenbach Hbf","Hanau Hbf","Hanau Klein-Auheim","Hainburg Hainstadt","Seligenstadt","Mainhausen Zellhausen","Babenhausen","Babenhausen Langstadt","Groß-Umstadt Klein-Umstadt","Groß-Umstadt Mitte"]}]

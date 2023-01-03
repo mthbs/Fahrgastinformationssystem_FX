@@ -14,11 +14,13 @@
             fx:controller="de.fis.controllers.videoplayer.VideoplayerController">
     <MenuBar prefHeight="25.0" prefWidth="600.0" style="visibility: true;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
              AnchorPane.topAnchor="0.0">
-        <Menu mnemonicParsing="false" text="Szene">
+        <Menu fx:id="main_menu" mnemonicParsing="false" text="Bahnhofsanzeige">
             <MenuItem mnemonicParsing="false" onAction="#oeffneBahnhofsanzeige" text="Bahnhofsanzeige"/>
-            <MenuItem mnemonicParsing="false" onAction="#oeffneVideoplayer" text="Videoplayer"/>
             <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenhinzufuegen" text="Neue Fahrten hinzufügen"/>
             <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenloeschen" text="Fahrten verwalten"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Externe Programme">
+            <MenuItem mnemonicParsing="false" onAction="#oeffneVideoplayer" text="Videoplayer"/>
         </Menu>
     </MenuBar>
     <HBox alignment="CENTER" layoutY="300.0" prefHeight="50.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0"

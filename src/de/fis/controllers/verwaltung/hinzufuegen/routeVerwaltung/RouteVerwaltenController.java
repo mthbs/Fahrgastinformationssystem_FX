@@ -79,6 +79,7 @@ public class RouteVerwaltenController extends FahrtenhinzufuegenController imple
                 TextField temp = textFieldIdMap.get("input_ziel" + i);
                 if (!(temp.getText().isBlank() || temp.getText().equals("."))) {
                     System.out.println("valid: \t" + temp.getText());
+                    dba.createZielIfNotExists(temp.getText());
                     halteList.add(temp.getText());
                 }
             }

@@ -21,4 +21,14 @@ public class Unterwegshalte {
     public String[] getRoute() {
         return route;
     }
+
+    public String getZiel() {
+        return ziel;
+    }
+
+    public void setValues(String routeId, String zielbf, String[] route){
+        this.routeId = routeId;
+        this.ziel = zielbf;
+        this.route = route;
+    }
 }

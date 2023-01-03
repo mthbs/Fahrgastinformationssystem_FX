@@ -1,7 +1,6 @@
 package de.fis.controllers.verwaltung.bearbeiten.loeschen;
 
 import de.fis.controllers.ParentController;
-import de.fis.database.DBConnection;
 import de.fis.model.Abfahrt;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;

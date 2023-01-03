@@ -5,7 +5,6 @@ import de.fis.addon.time.CurrentTime;
 import de.fis.addon.time.Time;
 import de.fis.controllers.ParentController;
 import de.fis.controllers.zwischenhalte.ZwischenhalteController;
-import de.fis.database.DBConnection;
 import de.fis.model.Abfahrt;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;

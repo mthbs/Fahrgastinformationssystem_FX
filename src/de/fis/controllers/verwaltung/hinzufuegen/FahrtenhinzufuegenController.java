@@ -2,7 +2,6 @@ package de.fis.controllers.verwaltung.hinzufuegen;
 
 import de.fis.addon.time.Time;
 import de.fis.controllers.ParentController;
-import de.fis.database.DBConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;

@@ -14,66 +14,56 @@
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19"
             fx:controller="de.fis.controllers.verwaltung.bearbeiten.FahrtenverwaltungController">
-    <children>
-        <MenuBar prefHeight="25.0" prefWidth="600.0" style="visibility: true;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                 AnchorPane.topAnchor="0.0">
-            <menus>
-                <Menu mnemonicParsing="false" text="Szene">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#oeffneBahnhofsanzeige" text="Bahnhofsanzeige"/>
-                        <MenuItem mnemonicParsing="false" onAction="#oeffneVideoplayer" text="Videoplayer"/>
-                        <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenhinzufuegen" text="Neue Fahrten hinzufügen"/>
-                        <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenverwaltung" text="Fahrten verwalten (alt)"/>
-                        <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenloeschen" text="Fahrten verwalten"/>
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-        <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-              AnchorPane.topAnchor="25.0">
-            <children>
-                <Label fx:id="lbl_title" alignment="CENTER" prefHeight="40.0" prefWidth="600.0" text="Fahrten verwalten"
-                       textAlignment="CENTER">
-                    <font>
-                        <Font name="System Bold" size="20.0"/>
-                    </font>
-                    <padding>
-                        <Insets bottom="10.0" top="10.0"/>
-                    </padding>
-                </Label>
-                <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0">
-                    <columns>
-                        <TableColumn fx:id="tblcol_id" prefWidth="100.0" text="Id"/>
-                        <TableColumn fx:id="tblcol_abfahrt" prefWidth="100.0" text="Abfahrt"/>
-                        <TableColumn fx:id="tblcol_zugnr" prefWidth="100.0" text="Zugnr."/>
-                        <TableColumn fx:id="tblcol_gleis" prefWidth="100.0" text="Gleis"/>
-                        <TableColumn fx:id="tblcol_route" prefWidth="100.0" text="Route"/>
-                    </columns>
-                    <VBox.margin>
-                        <Insets bottom="50.0" left="50.0" right="50.0"/>
-                    </VBox.margin>
-                </TableView>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                    <VBox.margin>
-                        <Insets bottom="25.0"/>
-                    </VBox.margin>
-                    <children>
-                        <Button mnemonicParsing="false" onAction="#oeffneFahrtenloeschen" text="Einträge löschen">
-                            <HBox.margin>
-                                <Insets left="25.0" right="25.0"/>
-                            </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" text="Einträge bearbeiten">
-                            <HBox.margin>
-                                <Insets left="25.0" right="25.0"/>
-                            </HBox.margin>
-                        </Button>
-                    </children>
-                </HBox>
-            </children>
-        </VBox>
-        <Label fx:id="lbl_signature" alignment="BOTTOM_LEFT" text="Copyright=Maxim Neumann" textAlignment="RIGHT"
-               AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
+    <MenuBar prefHeight="25.0" prefWidth="600.0" style="visibility: true;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+             AnchorPane.topAnchor="0.0">
+        <Menu mnemonicParsing="false" text="Szene">
+            <MenuItem mnemonicParsing="false" onAction="#oeffneBahnhofsanzeige" text="Bahnhofsanzeige"/>
+            <MenuItem mnemonicParsing="false" onAction="#oeffneVideoplayer" text="Videoplayer"/>
+            <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenhinzufuegen" text="Neue Fahrten hinzufügen"/>
+            <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenverwaltung" text="Fahrten verwalten (alt)"/>
+            <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenloeschen" text="Fahrten verwalten"/>
+        </Menu>
+    </MenuBar>
+    <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+          AnchorPane.topAnchor="25.0">
+        <Label fx:id="lbl_title" alignment="CENTER" prefHeight="40.0" prefWidth="600.0" text="Fahrten verwalten"
+               textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="20.0"/>
+            </font>
+            <padding>
+                <Insets bottom="10.0" top="10.0"/>
+            </padding>
+        </Label>
+        <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0">
+            <columns>
+                <TableColumn fx:id="tblcol_id" prefWidth="100.0" text="Id"/>
+                <TableColumn fx:id="tblcol_abfahrt" prefWidth="100.0" text="Abfahrt"/>
+                <TableColumn fx:id="tblcol_zugnr" prefWidth="100.0" text="Zugnr."/>
+                <TableColumn fx:id="tblcol_gleis" prefWidth="100.0" text="Gleis"/>
+                <TableColumn fx:id="tblcol_route" prefWidth="100.0" text="Route"/>
+            </columns>
+            <VBox.margin>
+                <Insets bottom="50.0" left="50.0" right="50.0"/>
+            </VBox.margin>
+        </TableView>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <VBox.margin>
+                <Insets bottom="25.0"/>
+            </VBox.margin>
+            <Button mnemonicParsing="false" onAction="#oeffneFahrtenloeschen" text="Einträge löschen">
+                <HBox.margin>
+                    <Insets left="25.0" right="25.0"/>
+                </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" text="Einträge bearbeiten">
+                <HBox.margin>
+                    <Insets left="25.0" right="25.0"/>
+                </HBox.margin>
+            </Button>
+        </HBox>
+    </VBox>
+    <Label fx:id="lbl_signature" alignment="BOTTOM_LEFT" text="Copyright=Maxim Neumann" textAlignment="RIGHT"
+           AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
 
-    </children>
 </AnchorPane>

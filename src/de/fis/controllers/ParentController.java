@@ -26,8 +26,6 @@ public class ParentController {
 
     protected static DBConnection dba = new DBConnection("root", "root");
 
-    ;
-
     @FXML
     public void oeffneFahrtenhinzufuegen() throws MalformedURLException {
         FXMLLoader fxmlLoader = new FXMLLoader();

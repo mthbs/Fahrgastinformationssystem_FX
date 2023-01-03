@@ -12,53 +12,43 @@
 <?import javafx.scene.media.MediaView?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19"
             fx:controller="de.fis.controllers.videoplayer.VideoplayerController">
-    <children>
-        <MenuBar prefHeight="25.0" prefWidth="600.0" style="visibility: true;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                 AnchorPane.topAnchor="0.0">
-            <menus>
-                <Menu mnemonicParsing="false" text="Szene">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#oeffneBahnhofsanzeige" text="Bahnhofsanzeige"/>
-                        <MenuItem mnemonicParsing="false" onAction="#oeffneVideoplayer" text="Videoplayer"/>
-                        <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenhinzufuegen" text="Neue Fahrten hinzufügen"/>
-                        <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenverwaltung" text="Fahrten verwalten (alt)"/>
-                        <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenloeschen" text="Fahrten verwalten"/>
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-        <HBox alignment="CENTER" layoutY="300.0" prefHeight="50.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0"
-              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-            <children>
-                <Button fx:id="openButton" mnemonicParsing="false" onAction="#openButtonTapped" text="Open">
-                    <HBox.margin>
-                        <Insets left="10.0" right="10.0"/>
-                    </HBox.margin>
-                </Button>
-                <Button fx:id="playButton" mnemonicParsing="false" onAction="#playButtonTapped" text="Play">
-                    <HBox.margin>
-                        <Insets left="10.0" right="10.0"/>
-                    </HBox.margin>
-                </Button>
-                <Button fx:id="pauseButton" mnemonicParsing="false" onAction="#pauseButtonTapped" text="Pause">
-                    <HBox.margin>
-                        <Insets left="10.0" right="10.0"/>
-                    </HBox.margin>
-                </Button>
-                <Button fx:id="stopButton" mnemonicParsing="false" onAction="#stopButtonTapped" text="Stop">
-                    <HBox.margin>
-                        <Insets left="10.0" right="10.0"/>
-                    </HBox.margin>
-                </Button>
-            </children>
-        </HBox>
-        <StackPane layoutX="191.0" layoutY="109.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0"
-                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
-            <children>
-                <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="200.0"/>
-            </children>
-        </StackPane>
-        <Label fx:id="lbl_signature" alignment="BOTTOM_LEFT" text="Copyright=Maxim Neumann" textAlignment="RIGHT"
-               AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
-    </children>
+    <MenuBar prefHeight="25.0" prefWidth="600.0" style="visibility: true;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+             AnchorPane.topAnchor="0.0">
+        <Menu mnemonicParsing="false" text="Szene">
+            <MenuItem mnemonicParsing="false" onAction="#oeffneBahnhofsanzeige" text="Bahnhofsanzeige"/>
+            <MenuItem mnemonicParsing="false" onAction="#oeffneVideoplayer" text="Videoplayer"/>
+            <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenhinzufuegen" text="Neue Fahrten hinzufügen"/>
+            <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenverwaltung" text="Fahrten verwalten (alt)"/>
+            <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenloeschen" text="Fahrten verwalten"/>
+        </Menu>
+    </MenuBar>
+    <HBox alignment="CENTER" layoutY="300.0" prefHeight="50.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <Button fx:id="openButton" mnemonicParsing="false" onAction="#openButtonTapped" text="Open">
+            <HBox.margin>
+                <Insets left="10.0" right="10.0"/>
+            </HBox.margin>
+        </Button>
+        <Button fx:id="playButton" mnemonicParsing="false" onAction="#playButtonTapped" text="Play">
+            <HBox.margin>
+                <Insets left="10.0" right="10.0"/>
+            </HBox.margin>
+        </Button>
+        <Button fx:id="pauseButton" mnemonicParsing="false" onAction="#pauseButtonTapped" text="Pause">
+            <HBox.margin>
+                <Insets left="10.0" right="10.0"/>
+            </HBox.margin>
+        </Button>
+        <Button fx:id="stopButton" mnemonicParsing="false" onAction="#stopButtonTapped" text="Stop">
+            <HBox.margin>
+                <Insets left="10.0" right="10.0"/>
+            </HBox.margin>
+        </Button>
+    </HBox>
+    <StackPane layoutX="191.0" layoutY="109.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0"
+               AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+        <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="200.0"/>
+    </StackPane>
+    <Label fx:id="lbl_signature" alignment="BOTTOM_LEFT" text="Copyright=Maxim Neumann" textAlignment="RIGHT"
+           AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
 </AnchorPane>

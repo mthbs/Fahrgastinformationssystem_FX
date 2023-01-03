@@ -28,6 +28,10 @@ public class Abfahrt {
         route = new Route(routeId);
     }
 
+    @Override
+    public String toString() {
+        return "Abfahrt{" + "id='" + id + '\'' + ", abfahrt=" + abfahrt + ", zugnr='" + zugnr + '\'' + ", gleis='" + gleis + '\'' + ", routeId='" + routeId + '\'' + ", route=" + route + '}';
+    }
 
     public String getId() {
         return id;
@@ -69,17 +73,11 @@ public class Abfahrt {
         this.routeId = routeId;
     }
 
-
     public Route getRoute() {
         return route;
     }
 
     public void setRoute(final Route route) {
         this.route = route;
-    }
-
-    @Override
-    public String toString() {
-        return "Abfahrt{" + "id='" + id + '\'' + ", abfahrt=" + abfahrt + ", zugnr='" + zugnr + '\'' + ", gleis='" + gleis + '\'' + ", routeId='" + routeId + '\'' + ", route=" + route + '}';
     }
 }

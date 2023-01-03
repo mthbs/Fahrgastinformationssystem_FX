@@ -26,6 +26,11 @@ public class Time {
         second = Integer.parseInt(time[2]);
     }
 
+    @Override
+    public String toString() {
+        return hour + ":" + minute + ":" + second;
+    }
+
     public String getCurrentTime(boolean seconds) {
         String min;
         String sec;
@@ -46,6 +51,19 @@ public class Time {
         return hour + ":" + min;
     }
 
+    //    public static void main(String[] args) {
+    //        Time currTime = new Time(new CurrentTime().currentTime());
+    //        System.out.println(currTime);
+    //        Time newTime = increment(new Time("14:01:00"),45);
+    //        System.out.println(newTime);
+    //        List<Time> timeList = incrementList(new Time("09:01:00"),new Time("14:59:52"),45);
+    //        int i = 0;
+    //        for(Time t : timeList){
+    //            System.out.println(i+": " + t);
+    //            i++;
+    //        }
+    //    }
+
     public void oneSecondPassed() {
         second++;
         if (second >= 60) {
@@ -62,28 +80,15 @@ public class Time {
         }
     }
 
-//    public static void main(String[] args) {
-//        Time currTime = new Time(new CurrentTime().currentTime());
-//        System.out.println(currTime);
-//        Time newTime = increment(new Time("14:01:00"),45);
-//        System.out.println(newTime);
-//        List<Time> timeList = incrementList(new Time("09:01:00"),new Time("14:59:52"),45);
-//        int i = 0;
-//        for(Time t : timeList){
-//            System.out.println(i+": " + t);
-//            i++;
-//        }
-//    }
-
-    public List<Time> incrementList(Time startTime, Time endTime, int takt){
+    public List<Time> incrementList(Time startTime, Time endTime, int takt) {
 
         List<Time> timeList = new ArrayList<>();
 
-        if(compareTime(startTime,endTime)){
+        if (compareTime(startTime, endTime)) {
             Time thisTime = startTime;
-            while(compareTime(thisTime,endTime)){
+            while (compareTime(thisTime, endTime)) {
                 timeList.add(thisTime);
-                thisTime = increment(thisTime,takt);
+                thisTime = increment(thisTime, takt);
             }
         } else {
             new RuntimeException("Zielzeit ist kleiner als die Startzeit. Dieses Format wird nicht unterstützt");
@@ -91,8 +96,8 @@ public class Time {
         return timeList;
     }
 
-    public Time increment(int takt){
-        return increment(new Time(new CurrentTime().currentTime()),takt);
+    public Time increment(int takt) {
+        return increment(new Time(new CurrentTime().currentTime()), takt);
     }
 
     // set increment
@@ -104,34 +109,35 @@ public class Time {
         int startSecond = startTime.getSecond();
         int endSecond = startSecond;
         Time returnTime = null;
-        if(takt <= 60){
-            if(endMinute > 59){
+        if (takt <= 60) {
+            if (endMinute > 59) {
                 endHour++;
                 endMinute -= 60;
-                if(endHour > 23){
+                if (endHour > 23) {
                     endHour = 0;
                 }
-            }returnTime = new Time(endHour+":"+endMinute+":"+endSecond);
+            }
+            returnTime = new Time(endHour + ":" + endMinute + ":" + endSecond);
         } else {
             new RuntimeException("Feature is now not supported. Please select a frequence less than 60 minutes");
         }
         return returnTime;
     }
 
-    private boolean compareTime(Time smallerTime, Time largerTime){
-        if(largerTime.getHour() > smallerTime.getHour()){
+    private boolean compareTime(Time smallerTime, Time largerTime) {
+        if (largerTime.getHour() > smallerTime.getHour()) {
             return true;
-        } else if (largerTime.getHour() < smallerTime.getHour()){
+        } else if (largerTime.getHour() < smallerTime.getHour()) {
             return false;
         } else {
-            if(largerTime.getMinute() > smallerTime.getMinute()){
+            if (largerTime.getMinute() > smallerTime.getMinute()) {
                 return true;
-            } else if (largerTime.getMinute() < smallerTime.getMinute()){
+            } else if (largerTime.getMinute() < smallerTime.getMinute()) {
                 return false;
             } else {
-                if(largerTime.getSecond() > smallerTime.getSecond()){
+                if (largerTime.getSecond() > smallerTime.getSecond()) {
                     return true;
-                } else if (largerTime.getSecond() < smallerTime.getSecond()){
+                } else if (largerTime.getSecond() < smallerTime.getSecond()) {
                     return false;
                 } else {
                     // equal
@@ -163,10 +169,5 @@ public class Time {
 
     public void setSecond(int second) {
         this.second = second;
-    }
-
-    @Override
-    public String toString() {
-        return   hour + ":" + minute + ":" + second;
     }
 }

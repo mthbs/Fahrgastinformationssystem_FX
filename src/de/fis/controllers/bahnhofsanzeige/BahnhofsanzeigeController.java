@@ -8,9 +8,7 @@ import de.fis.controllers.zwischenhalte.ZwischenhalteController;
 import de.fis.database.DBConnection;
 import de.fis.model.Abfahrt;
 import javafx.animation.Animation;
-import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -143,7 +141,7 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
         bahnhof = "Frankfurt (Main) Süd";
 
         time = new Time(new CurrentTime().currentTime());
-//        time = new Time("08:15:00");
+        //        time = new Time("08:15:00");
 
         labelTime.setText(time.getCurrentTime(true));
 
@@ -183,7 +181,7 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
     private void ladeAbfahrten(Time time) throws SQLException, IOException {
         dba = new DBConnection("root", "root");
         abfahrtList.clear();
-        abfahrtList = dba.getAbfahrten(time,6);
+        abfahrtList = dba.getAbfahrten(time, 6);
         fillRow(0, lbl_time1, lbl_znr1, lbl_gleis1, lbl_ziel1, txt_route1);
         fillRow(1, lbl_time2, lbl_znr2, lbl_gleis2, lbl_ziel2, txt_route2);
         fillRow(2, lbl_time3, lbl_znr3, lbl_gleis3, lbl_ziel3, txt_route3);
@@ -217,14 +215,14 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
             route = "";
         }
         txt_route.setText(route);
-        laufschrift(txt_route,15);
+        laufschrift(txt_route, 15);
     }
 
-    private void laufschrift(Text txt_route, int seconds){
+    private void laufschrift(Text txt_route, int seconds) {
         TranslateTransition animation = new TranslateTransition();
         animation.setDuration(Duration.seconds(seconds));
         animation.setFromX(0);
-        animation.setToX(-(6*txt_route.getText().length()));
+        animation.setToX(-(6 * txt_route.getText().length()));
         animation.setCycleCount(Animation.INDEFINITE);
         animation.setNode(txt_route);
         animation.play();
@@ -234,16 +232,16 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
     private void playAnsage() throws MaryConfigurationException, SynthesisException, IOException {
         List<Abfahrt> festerStand = abfahrtList;
         StringBuilder sb = new StringBuilder("Ihre nächsten Anschlüsse:    ");
-        for(Abfahrt a : festerStand) {
+        for (Abfahrt a : festerStand) {
             StringBuilder innerBuilder = new StringBuilder();
             innerBuilder.append(a.getZugnr() + " nach " + a.getRoute().getZielbf());
             ZwischenhalteController zwischenhalte = new ZwischenhalteController();
             String[] halte = zwischenhalte.getTripForId(a.getRouteId());
-            if(halte.length>0 && halte[0] != ""){
+            if (halte.length > 0 && halte[0] != "") {
                 innerBuilder.append(" über " + halte[0]);
             }
-            innerBuilder.append(" um " + a.getAbfahrt().getHour()
-                    + " Uhr " + a.getAbfahrt().getMinute() + " von Gleis " + a.getGleis()+ "   ");
+            innerBuilder.append(
+                    " um " + a.getAbfahrt().getHour() + " Uhr " + a.getAbfahrt().getMinute() + " von Gleis " + a.getGleis() + "   ");
             sb.append(innerBuilder);
         }
         AnsagenCreator ace = new AnsagenCreator();

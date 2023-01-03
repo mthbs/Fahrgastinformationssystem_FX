@@ -13,9 +13,6 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 
 public class ParentController {
@@ -28,21 +25,6 @@ public class ParentController {
 
 
     protected DBConnection dba;
-
-
-    @FXML
-    void oeffneBahnhofsanzeige(ActionEvent event) throws MalformedURLException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(new File("src/de/fis/fxml/bahnhofsanzeige/Bahnhofsanzeige.fxml").toURI().toURL());
-        doOpenCloseOperations(fxmlLoader);
-    }
-
-    @FXML
-    private void oeffneVideoplayer() throws MalformedURLException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(new File("src/de/fis/fxml/videoplayer/Videoplayer.fxml").toURI().toURL());
-        doOpenCloseOperations(fxmlLoader);
-    }
 
     @FXML
     public void oeffneFahrtenhinzufuegen() throws MalformedURLException {
@@ -110,5 +92,19 @@ public class ParentController {
         closeStage.close();
         openStage.setScene(scene);
         openStage.show();
+    }
+
+    @FXML
+    void oeffneBahnhofsanzeige(ActionEvent event) throws MalformedURLException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(new File("src/de/fis/fxml/bahnhofsanzeige/Bahnhofsanzeige.fxml").toURI().toURL());
+        doOpenCloseOperations(fxmlLoader);
+    }
+
+    @FXML
+    private void oeffneVideoplayer() throws MalformedURLException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(new File("src/de/fis/fxml/videoplayer/Videoplayer.fxml").toURI().toURL());
+        doOpenCloseOperations(fxmlLoader);
     }
 }

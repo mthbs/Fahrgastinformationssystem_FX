@@ -2,7 +2,6 @@ package de.fis.database;
 
 import de.fis.addon.time.Time;
 import de.fis.model.Abfahrt;
-import de.fis.model.Route;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -29,22 +28,12 @@ public class DBConnection {
         establishConnection();
     }
 
-    private void establishConnection() {
-        try {
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/activeworkbench?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-                    username, password);
-            statement = connection.createStatement();
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        }
-    }
-
     public List<Abfahrt> getAbfahrten(Time time, int limit) throws SQLException {
         // int limit: limit=-1: Komplett, limit>0: anzahl nächster Fahrten
         String query = null;
-        if(limit > 0 && time != null) {
-            query = new String(" SELECT DISTINCT * FROM activeworkbench.abfahrt where abfahrt > \'" + time.getCurrentTime(true) + "\' order by" + " abfahrt limit " + limit);
+        if (limit > 0 && time != null) {
+            query = new String(" SELECT DISTINCT * FROM activeworkbench.abfahrt where abfahrt > \'" + time.getCurrentTime(
+                    true) + "\' order by" + " abfahrt limit " + limit);
         } else {
             query = new String(" SELECT DISTINCT * FROM activeworkbench.abfahrt ORDER BY abfahrt ");
         }
@@ -98,6 +87,39 @@ public class DBConnection {
         statement.executeUpdate(query);
     }
 
+    public void executeUpdateQuery(String query) throws SQLException {
+        statement.executeUpdate(query);
+    }
+
+    public boolean routeVorhanden(String routeId, String zielbf) throws SQLException {
+        ResultSet resultSet = statement.executeQuery(
+                "SELECT * FROM activeworkbench.route WHERE id = \'" + routeId + "\' AND ziel = \'" + zielbf + "\' ;");
+        if (!resultSet.next()) {
+            // resultSet is empty
+            return false; // dann öffne FXML
+        } else {
+            // resultSet is not empty
+            resultSet = statement.executeQuery("SELECT * FROM activeworkbench.haltepunkt WHERE halteName = \'" + zielbf + "\' ;");
+            if (!resultSet.next()) {
+                System.err.println("Haltepunkt ist nicht eingetragen");
+                return false; // Haltepunkt ist nicht eingetragen
+            } else {
+                return true;
+            }
+        }
+    }
+
+    private void establishConnection() {
+        try {
+            Connection connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/activeworkbench?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+                    username, password);
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
     public Set<String> getAllUsedLines() throws SQLException {
         Set<String> allUsedLines = new HashSet<>();
         ResultSet resultSet = statement.executeQuery(" SELECT DISTINCT zugnr FROM activeworkbench.abfahrt ");
@@ -114,28 +136,6 @@ public class DBConnection {
             allUsedZiele.add(resultSet.getString("halteName"));
         }
         return allUsedZiele;
-    }
-
-    public void executeUpdateQuery(String query) throws SQLException {
-        statement.executeUpdate(query);
-    }
-
-    public boolean routeVorhanden(String routeId, String zielbf) throws SQLException {
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM activeworkbench.route WHERE id = \'"+routeId+"\' AND ziel = \'"+zielbf+
-                "\' ;");
-        if(!resultSet.next()){
-            // resultSet is empty
-            return false; // dann öffne FXML
-        } else {
-            // resultSet is not empty
-            resultSet = statement.executeQuery("SELECT * FROM activeworkbench.haltepunkt WHERE halteName = \'"+ zielbf +"\' ;");
-            if(!resultSet.next()){
-                System.err.println("Haltepunkt ist nicht eingetragen");
-                return false; // Haltepunkt ist nicht eingetragen
-            } else {
-                return true;
-            }
-        }
     }
 
 }

@@ -2,22 +2,15 @@ package de.fis.controllers.verwaltung.hinzufuegen;
 
 import de.fis.addon.time.Time;
 import de.fis.controllers.ParentController;
-import de.fis.controllers.verwaltung.hinzufuegen.routeZuordnung.ZuordnungBestaetigenController;
 import de.fis.database.DBConnection;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -162,7 +155,7 @@ public class FahrtenhinzufuegenController extends ParentController implements In
     private void btnAddFormClicked() throws SQLException, MalformedURLException {
         if (btnProofSyntaxClicked()) {
 
-//             Datenbankabfrage erstellen aus Tabelle Route, if Route vorhanden mache direkt, if not, dann öffne neues Fenster
+            //             Datenbankabfrage erstellen aus Tabelle Route, if Route vorhanden mache direkt, if not, dann öffne neues Fenster
             if (dba.routeVorhanden(input_route_id.getText(), input_ziel.getText())) {
                 if (input_zeit_bis.getText().isBlank() || input_zeit_takt.getText().isBlank()) {
                     dba.createNewAbfahrt(input_zeit_von.getText(), input_linie.getText(), input_gleis.getText(), input_route_id.getText());
@@ -176,7 +169,7 @@ public class FahrtenhinzufuegenController extends ParentController implements In
                     }
                 }
             } else { // Route ist in Tabelle route nicht vorhanden
-                oeffneZuordnungBestaetigen(input_route_id.getText(),input_ziel.getText());
+                oeffneZuordnungBestaetigen(input_route_id.getText(), input_ziel.getText());
             }
         } else {
             lbl_title.setText(lbl_title.getText() + "(!)");

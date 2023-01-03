@@ -34,8 +34,8 @@ public class ZuordnungBestaetigenController extends ParentController implements 
 
     @FXML
     private void btn_confirmTapped() throws SQLException, MalformedURLException {
-        if(!(lbl_routeId.getText().isBlank() || lbl_zielbf.getText().isBlank())) {
-        DBConnection dba = new DBConnection("root","root");
+        if (!(lbl_routeId.getText().isBlank() || lbl_zielbf.getText().isBlank())) {
+            DBConnection dba = new DBConnection("root", "root");
             dba.createNewRoute(lbl_routeId.getText(), lbl_zielbf.getText());
         }
         oeffneFahrtenhinzufuegen();

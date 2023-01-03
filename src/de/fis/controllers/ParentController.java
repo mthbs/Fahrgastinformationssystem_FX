@@ -40,6 +40,10 @@ public class ParentController {
         doOpenCloseOperations(fxmlLoader);
     }
 
+    protected void oeffneBahnhofsanzeige() throws MalformedURLException {
+        oeffneBahnhofsanzeige(new ActionEvent());
+    }
+
     @FXML
     protected void oeffneBahnhofsanzeige(ActionEvent event) throws MalformedURLException {
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -61,7 +65,7 @@ public class ParentController {
         doOpenCloseOperations(fxmlLoader);
     }
 
-    protected void oeffneZuordnungBestaetigen(String routeId, String zielbf) throws MalformedURLException {
+    public void oeffneZuordnungBestaetigen(String routeId, String zielbf) throws MalformedURLException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(new File("src/de/fis/fxml/verwaltung/hinzufuegen/routeZuordnen/ZuordnungBestaetigen.fxml").toURI().toURL());
         try {

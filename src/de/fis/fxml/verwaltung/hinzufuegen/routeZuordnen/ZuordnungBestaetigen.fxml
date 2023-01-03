@@ -5,107 +5,157 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19"
-            fx:controller="de.fis.controllers.verwaltung.hinzufuegen.routeZuordnung.ZuordnungBestaetigenController">
-    <MenuBar fx:id="menubar" prefHeight="25.0" prefWidth="800.0" style="visibility: true;" AnchorPane.bottomAnchor="775.0"
-             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fis.controllers.verwaltung.hinzufuegen.routeZuordnung.ZuordnungBestaetigenController">
+    <MenuBar fx:id="menubar" prefHeight="25.0" prefWidth="800.0" style="visibility: true;" AnchorPane.bottomAnchor="775.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <Menu fx:id="main_menu" mnemonicParsing="false" text="Bahnhofsanzeige">
-            <MenuItem mnemonicParsing="false" onAction="#oeffneBahnhofsanzeige" text="Bahnhofsanzeige"/>
-            <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenhinzufuegen" text="Neue Fahrten hinzufügen"/>
-            <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenBearbeiten" text="Fahrten verwalten"/>
+            <MenuItem mnemonicParsing="false" onAction="#oeffneBahnhofsanzeige" text="Bahnhofsanzeige" />
+            <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenhinzufuegen" text="Neue Fahrten hinzufügen" />
+            <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenBearbeiten" text="Fahrten verwalten" />
         </Menu>
         <Menu mnemonicParsing="false" text="Externe Programme">
-            <MenuItem mnemonicParsing="false" onAction="#oeffneVideoplayer" text="Videoplayer"/>
+            <MenuItem mnemonicParsing="false" onAction="#oeffneVideoplayer" text="Videoplayer" />
         </Menu>
     </MenuBar>
-    <VBox maxHeight="700.0" maxWidth="700.0" minHeight="700.0" minWidth="700.0" prefHeight="700.0" prefWidth="700.0"
-          AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+    <VBox maxHeight="700.0" maxWidth="700.0" minHeight="700.0" minWidth="700.0" prefHeight="700.0" prefWidth="700.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
         <VBox alignment="TOP_CENTER" prefWidth="100.0">
-            <Label alignment="CENTER" prefWidth="700.0" text="Möchten Sie wirklich die neue Route-Ziel-Zuordnung der Datenbank hinzufügen?"
-                   textAlignment="CENTER">
+            <Label alignment="CENTER" prefWidth="700.0" text="Möchten Sie wirklich die neue Route-Ziel-Zuordnung der Datenbank und dem JSON hinzufügen?" textAlignment="CENTER">
                 <font>
-                    <Font name="System Bold" size="16.0"/>
+                    <Font name="System Bold" size="15.0" />
                 </font>
             </Label>
             <HBox prefHeight="50.0" prefWidth="200.0">
                 <padding>
-                    <Insets top="15.0"/>
+                    <Insets top="15.0" />
                 </padding>
                 <Label prefWidth="150.0" text="Route_Id:">
                     <padding>
-                        <Insets left="10.0"/>
+                        <Insets left="10.0" />
                     </padding>
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
                 <Label fx:id="lbl_routeId" prefWidth="90.0" text="lbl_routeId">
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
             </HBox>
             <HBox prefHeight="50.0" prefWidth="200.0">
                 <padding>
-                    <Insets top="15.0"/>
+                    <Insets top="15.0" />
                 </padding>
                 <Label prefWidth="150.0" text="Zielbahnhof:">
                     <padding>
-                        <Insets left="10.0"/>
+                        <Insets left="10.0" />
                     </padding>
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
                 <Label fx:id="lbl_zielbf" prefWidth="90.0" text="lbl_zielbf">
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
             </HBox>
             <HBox prefHeight="50.0" prefWidth="200.0">
                 <padding>
-                    <Insets top="15.0"/>
+                    <Insets top="15.0" />
                 </padding>
                 <Label prefWidth="150.0" text="Route:">
                     <padding>
-                        <Insets left="10.0"/>
+                        <Insets left="10.0" />
                     </padding>
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
                 <Label prefWidth="300.0" text="Inhalt folgt später">
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
             </HBox>
+         <ScrollPane fx:id="scrollPane" prefHeight="200.0">
+           <content>
+             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="700.0">
+                  <children>
+                     <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                           <Label fx:id="lbl_halte_title" alignment="CENTER" prefHeight="32.0" prefWidth="700.0" text="Zwischenhalte hinzufügen:" textAlignment="CENTER">
+                              <font>
+                                 <Font name="System Bold" size="16.0" />
+                              </font>
+                           </Label>
+                           <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="200.0">
+                              <children>
+                                 <Label fx:id="lbl_halte" prefWidth="100.0" text="Haltepunkt1:">
+                                    <font>
+                                       <Font size="14.0" />
+                                    </font>
+                                    <HBox.margin>
+                                       <Insets left="35.0" />
+                                    </HBox.margin>
+                                 </Label>
+                                 <MenuButton fx:id="dropdown_ziel" mnemonicParsing="false" prefWidth="150.0" text="MenuButton">
+                                    <font>
+                                       <Font size="14.0" />
+                                    </font>
+                                    <HBox.margin>
+                                       <Insets right="50.0" />
+                                    </HBox.margin>
+                                 </MenuButton>
+                                 <TextField fx:id="input_ziel" prefWidth="250.0">
+                                    <font>
+                                       <Font size="14.0" />
+                                    </font>
+                                    <HBox.margin>
+                                       <Insets right="50.0" />
+                                    </HBox.margin>
+                                 </TextField>
+                                 <Button mnemonicParsing="false" onAction="#btn_plusClicked" text="+">
+                                    <font>
+                                       <Font size="14.0" />
+                                    </font>
+                                    <HBox.margin>
+                                       <Insets right="35.0" />
+                                    </HBox.margin>
+                                 </Button>
+                              </children>
+                           </HBox>
+                        </children>
+                     </VBox>
+                  </children>
+               </AnchorPane>
+           </content>
+         </ScrollPane>
         </VBox>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-            <Button fx:id="btn_confirm" mnemonicParsing="false" onAction="#btn_confirmTapped" prefHeight="30.0" prefWidth="80.0"
-                    text="Bestätigen">
+            <Button fx:id="btn_confirm" mnemonicParsing="false" onAction="#btn_confirmTapped" prefHeight="30.0" prefWidth="80.0" text="Bestätigen">
                 <HBox.margin>
-                    <Insets left="10.0" right="10.0"/>
+                    <Insets left="10.0" right="10.0" />
                 </HBox.margin>
             </Button>
-            <Button fx:id="btn_cancel" mnemonicParsing="false" onAction="#btn_cancelTapped" prefHeight="30.0" prefWidth="80.0"
-                    text="Abbrechen">
+            <Button fx:id="btn_cancel" mnemonicParsing="false" onAction="#btn_cancelTapped" prefHeight="30.0" prefWidth="80.0" text="Abbrechen">
                 <HBox.margin>
-                    <Insets left="10.0" right="10.0"/>
+                    <Insets left="10.0" right="10.0" />
                 </HBox.margin>
             </Button>
         </HBox>
     </VBox>
-    <Label fx:id="lbl_signature" alignment="BOTTOM_LEFT" text="Copyright=Maxim Neumann" textAlignment="RIGHT" AnchorPane.bottomAnchor="0.0"
-           AnchorPane.rightAnchor="0.0">
+    <Label fx:id="lbl_signature" alignment="BOTTOM_LEFT" text="Copyright=Maxim Neumann" textAlignment="RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <font>
-            <Font size="8.0"/>
+            <Font size="8.0" />
         </font>
     </Label>
 </AnchorPane>

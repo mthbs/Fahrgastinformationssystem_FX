@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -69,12 +70,14 @@ public class FahrtenhinzufuegenController extends ParentController implements In
 
     private boolean singleTrip = false;
 
+    protected Set<String> allUsedLines = new HashSet<>();
+    protected Set<String> allUsedZiele = new HashSet<>();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        Set<String> allUsedLines = null;
-        Set<String> allUsedZiele = null;
+
         try {
             allUsedLines = dba.getAllUsedLines();
             allUsedZiele = dba.getAllUsedZiele();
@@ -82,12 +85,23 @@ public class FahrtenhinzufuegenController extends ParentController implements In
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        // set Dropdown values:
 
         for (String s : allUsedLines) {
-            dropdown_linie.getItems().add(new MenuItem(s));
+            MenuItem menuItem = new MenuItem(s);
+            menuItem.setOnAction(event -> {
+                input_linie.setText(menuItem.getText());
+                dropdown_linie.setText(menuItem.getText());
+            });
+            dropdown_linie.getItems().add(menuItem);
         }
         for (String s : allUsedZiele) {
-            dropdown_ziel.getItems().add(new MenuItem(s));
+            MenuItem menuItem = new MenuItem(s);
+            menuItem.setOnAction(event -> {
+                input_ziel.setText(menuItem.getText());
+                dropdown_ziel.setText(menuItem.getText());
+            });
+            dropdown_ziel.getItems().add(menuItem);
         }
 
         input_zeit_von.setText("12:00:00");
@@ -150,26 +164,31 @@ public class FahrtenhinzufuegenController extends ParentController implements In
 
     @FXML
     private void btnAddFormClicked() throws SQLException, MalformedURLException {
-        if (btnProofSyntaxClicked()) {
-
-            //             Datenbankabfrage erstellen aus Tabelle Route, if Route vorhanden mache direkt, if not, dann öffne neues Fenster
-            if (dba.routeVorhanden(input_route_id.getText(), input_ziel.getText())) {
-                if (input_zeit_bis.getText().isBlank() || input_zeit_takt.getText().isBlank()) {
-                    dba.createNewAbfahrt(input_zeit_von.getText(), input_linie.getText(), input_gleis.getText(), input_route_id.getText());
-                } else {
-                    Time timeVon = new Time(input_zeit_von.getText());
-                    Time timeBis = new Time(input_zeit_bis.getText());
-                    List<Time> timeList = timeVon.incrementList(timeVon, timeBis, Integer.parseInt(input_zeit_takt.getText()));
-                    for (Time t : timeList) {
-                        System.out.println("Neue Abfahrt (" + input_linie.getText() + "): " + t);
-                        dba.createNewAbfahrt(t.toString(), input_linie.getText(), input_gleis.getText(), input_route_id.getText());
-                    }
-                }
-            } else { // Route ist in Tabelle route nicht vorhanden
+//        if (btnProofSyntaxClicked()) {
+//
+//            //             Datenbankabfrage erstellen aus Tabelle Route, if Route vorhanden mache direkt, if not, dann öffne neues Fenster
+//            if (dba.routeVorhanden(input_route_id.getText(), input_ziel.getText())) {
+//                if (input_zeit_bis.getText().isBlank() || input_zeit_takt.getText().isBlank()) {
+//                    dba.createNewAbfahrt(input_zeit_von.getText(), input_linie.getText(), input_gleis.getText(), input_route_id.getText());
+//                } else {
+//                    Time timeVon = new Time(input_zeit_von.getText());
+//                    Time timeBis = new Time(input_zeit_bis.getText());
+//                    List<Time> timeList = timeVon.incrementList(timeVon, timeBis, Integer.parseInt(input_zeit_takt.getText()));
+//                    for (Time t : timeList) {
+//                        System.out.println("Neue Abfahrt (" + input_linie.getText() + "): " + t);
+//                        dba.createNewAbfahrt(t.toString(), input_linie.getText(), input_gleis.getText(), input_route_id.getText());
+//                    }
+//                }
+//            } else { // Route ist in Tabelle route nicht vorhanden
                 oeffneZuordnungBestaetigen(input_route_id.getText(), input_ziel.getText());
-            }
-        } else {
-            lbl_title.setText(lbl_title.getText() + "(!)");
-        }
+//            }
+//        } else {
+//            lbl_title.setText(lbl_title.getText() + "(!)");
+//        }
+    }
+
+    @FXML
+    private void btnCancelClicked() throws MalformedURLException {
+        oeffneBahnhofsanzeige();
     }
 }

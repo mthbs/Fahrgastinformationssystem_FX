@@ -1,5 +1,6 @@
 package de.fis;
 
+import de.fis.controllers.ParentController;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -9,18 +10,21 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.sql.SQLException;
 
 
 public class Main extends Application {
 
     @Override
-    public void start(final Stage stage) {
+    public void start(final Stage stage) throws MalformedURLException {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("fxml/bahnhofsanzeige/Bahnhofsanzeige.fxml"));
             //            Parent root = FXMLLoader.load(getClass().getResource("fxml/verwaltung/hinzufuegen/Fahrtenhinzufuegen.fxml"));
             //            Parent root = FXMLLoader.load(getClass().getResource("fxml/verwaltung/bearbeiten/Fahrtenverwaltung.fxml"));
             //            Parent root = FXMLLoader.load(getClass().getResource("fxml/videoplayer/Videoplayer.fxml"));
+//            Parent root = FXMLLoader.load(getClass().getResource("src/de/fis/fxml/verwaltung/hinzufuegen/routeZuordnen" +
+//                    "/ZuordnungBestaetigen.fxml"));
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("style/root.css").toExternalForm());
             videoplayerAddon(scene, stage);

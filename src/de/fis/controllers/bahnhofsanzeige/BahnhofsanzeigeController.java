@@ -4,8 +4,8 @@ import de.fis.addon.audio.AnsagenCreator;
 import de.fis.addon.time.CurrentTime;
 import de.fis.addon.time.Time;
 import de.fis.controllers.ParentController;
-import de.fis.database.DBConnection;
 import de.fis.controllers.zwischenhalte.ZwischenhalteController;
+import de.fis.database.DBConnection;
 import de.fis.model.Abfahrt;
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
@@ -181,8 +181,7 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
 
     // Lädt Abfahrten füllt die Inhalte mit der fillRow-Funktion
     private void ladeAbfahrten(Time time) throws SQLException, IOException {
-        // DB Connection
-        DBConnection dba = new DBConnection("root", "root");
+        dba = new DBConnection("root", "root");
         abfahrtList.clear();
         abfahrtList = dba.getAbfahrten(time,6);
         fillRow(0, lbl_time1, lbl_znr1, lbl_gleis1, lbl_ziel1, txt_route1);

@@ -2,19 +2,25 @@ package de.fis.controllers.verwaltung.hinzufuegen;
 
 import de.fis.addon.time.Time;
 import de.fis.controllers.ParentController;
+import de.fis.controllers.verwaltung.hinzufuegen.routeZuordnung.ZuordnungBestaetigenController;
 import de.fis.database.DBConnection;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -32,9 +38,6 @@ public class FahrtenhinzufuegenController extends ParentController implements In
 
     @FXML
     private Button btn_add_form;
-
-    @FXML
-    private HBox btn_cancel;
 
     @FXML
     private Button btn_free_form;
@@ -74,7 +77,6 @@ public class FahrtenhinzufuegenController extends ParentController implements In
 
     private boolean singleTrip = false;
 
-    private DBConnection dba;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -157,23 +159,27 @@ public class FahrtenhinzufuegenController extends ParentController implements In
     }
 
     @FXML
-    private void btnAddFormClicked() throws SQLException {
+    private void btnAddFormClicked() throws SQLException, MalformedURLException {
         if (btnProofSyntaxClicked()) {
-            if (input_zeit_bis.getText().isBlank() || input_zeit_takt.getText().isBlank()) {
-                dba.createNewAbfahrt(input_zeit_von.getText(), input_linie.getText(), input_gleis.getText(), input_route_id.getText());
-            } else {
-                Time timeVon = new Time(input_zeit_von.getText());
-                Time timeBis = new Time(input_zeit_bis.getText());
-                List<Time> timeList = timeVon.incrementList(timeVon, timeBis, Integer.parseInt(input_zeit_takt.getText()));
-                for(Time t : timeList){
-                    System.out.println("Neue Abfahrt ("+input_linie.getText()+"): " + t);
-                    dba.createNewAbfahrt(t.toString(), input_linie.getText(), input_gleis.getText(), input_route_id.getText());
+
+//             Datenbankabfrage erstellen aus Tabelle Route, if Route vorhanden mache direkt, if not, dann öffne neues Fenster
+            if (dba.routeVorhanden(input_route_id.getText(), input_ziel.getText())) {
+                if (input_zeit_bis.getText().isBlank() || input_zeit_takt.getText().isBlank()) {
+                    dba.createNewAbfahrt(input_zeit_von.getText(), input_linie.getText(), input_gleis.getText(), input_route_id.getText());
+                } else {
+                    Time timeVon = new Time(input_zeit_von.getText());
+                    Time timeBis = new Time(input_zeit_bis.getText());
+                    List<Time> timeList = timeVon.incrementList(timeVon, timeBis, Integer.parseInt(input_zeit_takt.getText()));
+                    for (Time t : timeList) {
+                        System.out.println("Neue Abfahrt (" + input_linie.getText() + "): " + t);
+                        dba.createNewAbfahrt(t.toString(), input_linie.getText(), input_gleis.getText(), input_route_id.getText());
+                    }
                 }
+            } else { // Route ist in Tabelle route nicht vorhanden
+                oeffneZuordnungBestaetigen(input_route_id.getText(),input_ziel.getText());
             }
         } else {
             lbl_title.setText(lbl_title.getText() + "(!)");
         }
     }
-
-
 }

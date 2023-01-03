@@ -171,7 +171,7 @@
                   </Button>
                </children>
             </HBox>
-            <HBox fx:id="btn_cancel" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button fx:id="btn_free_form" alignment="CENTER" mnemonicParsing="false" onAction="#btnFreeFormClicked" prefHeight="35.0" text="Formular leeren" textAlignment="CENTER">
                      <HBox.margin>

@@ -45,7 +45,7 @@ public class ZwischenhalteController {
         sb.replace(allEntriesJSON.length()-1,allEntriesJSON.length()-1,"," + newEntryJSON);
         System.out.println(sb.toString());
         try (FileWriter writer = new FileWriter("resources/JSON/routes.json")){
-            writer.write(sb.toString().replace("},{","},\n{"));
+            writer.write(sb.toString().replace("[{","[\n{").replace("},{","},\n{"));
         }
 
     }

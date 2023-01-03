@@ -1,4 +1,4 @@
-package de.fis.controllers.verwaltung.bearbeiten.loeschen;
+package de.fis.controllers.verwaltung.bearbeiten;
 
 import de.fis.controllers.ParentController;
 import de.fis.model.Abfahrt;
@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 
-public class FahrtenloeschenController extends ParentController implements Initializable {
+public class FahrtenBearbeitenController extends ParentController implements Initializable {
 
     @FXML
     TextField field_id;

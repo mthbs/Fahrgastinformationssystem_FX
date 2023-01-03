@@ -14,13 +14,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19"
-            fx:controller="de.fis.controllers.verwaltung.bearbeiten.loeschen.FahrtenloeschenController">
+            fx:controller="de.fis.controllers.verwaltung.bearbeiten.FahrtenBearbeitenController">
     <MenuBar prefHeight="25.0" prefWidth="600.0" style="visibility: true;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
              AnchorPane.topAnchor="0.0">
         <Menu fx:id="main_menu" mnemonicParsing="false" text="Bahnhofsanzeige">
             <MenuItem mnemonicParsing="false" onAction="#oeffneBahnhofsanzeige" text="Bahnhofsanzeige"/>
             <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenhinzufuegen" text="Neue Fahrten hinzufügen"/>
-            <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenloeschen" text="Fahrten verwalten"/>
+            <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenBearbeiten" text="Fahrten verwalten"/>
         </Menu>
         <Menu mnemonicParsing="false" text="Externe Programme">
             <MenuItem mnemonicParsing="false" onAction="#oeffneVideoplayer" text="Videoplayer"/>
@@ -75,16 +75,6 @@
         </TableView>
         <HBox prefHeight="50.0" prefWidth="200.0">
             <Button fx:id="btn_loeschen" disable="true" mnemonicParsing="false" onAction="#btn_loeschen_tapped" text="Löschen"/>
-        </HBox>
-        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
-            <VBox.margin>
-                <Insets bottom="25.0"/>
-            </VBox.margin>
-            <Button mnemonicParsing="false" onAction="#oeffneFahrtenverwaltung" text="Zurück zur Verwaltungsübersicht">
-                <HBox.margin>
-                    <Insets left="25.0" right="25.0"/>
-                </HBox.margin>
-            </Button>
         </HBox>
     </VBox>
     <Label fx:id="lbl_signature" alignment="BOTTOM_LEFT" text="Copyright=Maxim Neumann" textAlignment="RIGHT"

@@ -17,7 +17,7 @@
         <Menu fx:id="main_menu" mnemonicParsing="false" text="Bahnhofsanzeige">
             <MenuItem mnemonicParsing="false" onAction="#oeffneBahnhofsanzeige" text="Bahnhofsanzeige"/>
             <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenhinzufuegen" text="Neue Fahrten hinzufügen"/>
-            <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenloeschen" text="Fahrten verwalten"/>
+            <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenBearbeiten" text="Fahrten verwalten"/>
         </Menu>
         <Menu mnemonicParsing="false" text="Externe Programme">
             <MenuItem mnemonicParsing="false" onAction="#oeffneVideoplayer" text="Videoplayer"/>

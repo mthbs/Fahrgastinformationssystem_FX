@@ -20,9 +20,6 @@ import java.util.ResourceBundle;
 
 public class FahrtenloeschenController extends ParentController implements Initializable {
 
-
-    DBConnection dba;
-
     @FXML
     TextField field_id;
 
@@ -62,8 +59,6 @@ public class FahrtenloeschenController extends ParentController implements Initi
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // load Dropdown
-        dba = new DBConnection("root", "root");
     }
 
     @FXML

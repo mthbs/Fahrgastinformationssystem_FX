@@ -74,8 +74,6 @@ public class FahrtenhinzufuegenController extends ParentController implements In
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        dba = new DBConnection("root", "root");
-
         Set<String> allUsedLines = null;
         Set<String> allUsedZiele = null;
         try {

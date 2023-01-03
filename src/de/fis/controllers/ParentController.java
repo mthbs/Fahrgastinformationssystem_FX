@@ -24,7 +24,7 @@ public class ParentController {
     protected File cssFile = new File("src/de/fis/style/root.css");
 
 
-    protected DBConnection dba;
+    protected static DBConnection dba = new DBConnection("root", "root");;
 
     @FXML
     public void oeffneFahrtenhinzufuegen() throws MalformedURLException {

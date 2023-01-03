@@ -51,8 +51,6 @@ public class FahrtenverwaltungController extends ParentController implements Ini
         tblcol_zugnr.setCellValueFactory(new PropertyValueFactory<Abfahrt, String>("zugnr"));
         tblcol_gleis.setCellValueFactory(new PropertyValueFactory<Abfahrt, String>("gleis"));
         tblcol_route.setCellValueFactory(new PropertyValueFactory<Abfahrt, String>("routeId"));
-        // Wir brauchen eine Datenbank-Connection, die alle Fahrplandaten in eine sortierte Liste von Abfahrt-Objekt lädt.
-        DBConnection dba = new DBConnection("root", "root");
         try {
             List<Abfahrt> abfahrtList = dba.getAbfahrten(null, -1);
             table.setItems(FXCollections.observableList(abfahrtList));

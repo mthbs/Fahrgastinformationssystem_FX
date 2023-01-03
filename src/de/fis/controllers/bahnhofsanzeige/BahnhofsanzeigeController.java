@@ -179,7 +179,6 @@ public class BahnhofsanzeigeController extends ParentController implements Initi
 
     // Lädt Abfahrten füllt die Inhalte mit der fillRow-Funktion
     private void ladeAbfahrten(Time time) throws SQLException, IOException {
-        dba = new DBConnection("root", "root");
         abfahrtList.clear();
         abfahrtList = dba.getAbfahrten(time, 6);
         fillRow(0, lbl_time1, lbl_znr1, lbl_gleis1, lbl_ziel1, txt_route1);

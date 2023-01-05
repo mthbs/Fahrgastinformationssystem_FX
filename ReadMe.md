@@ -49,10 +49,14 @@ Ich nutzte die MySQL-Workbench zum Ausführen der Datei.
 # Einblicke in das Programm
 
 Um Ihnen schonmal einen ersten Eindruck der Software zu geben, anbei ein paar Aufnahmen:
-![Bild kann nicht geladen werden](https://github.com/resources/img/forReadMe/bahnhofsanzeige.png?raw=true)
-![Bild kann nicht geladen werden](https://github.com/resources/img/forReadMe/fahrtenhinzufuegen.png?raw=true)
-![Bild kann nicht geladen werden](https://github.com/resources/img/forReadMe/fahrtenverwalten.png?raw=true)
-![Bild kann nicht geladen werden](https://github.com/resources/img/forReadMe/zwischenhalte.png?raw=true)
+
+![Bild kann nicht geladen werden](resources/img/forReadMe/bahnhofsanzeige.png?raw=true)
+
+![Bild kann nicht geladen werden](resources/img/forReadMe/fahrtenhinzufuegen.png?raw=true)
+
+![Bild kann nicht geladen werden](resources/img/forReadMe/fahrtenverwalten.png?raw=true)
+
+![Bild kann nicht geladen werden](resources/img/forReadMe/zwischenhalte.png?raw=true)
 
 # Noch Fragen?
 

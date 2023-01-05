@@ -1,7 +1,19 @@
+# Das Projekt
+
+Dieses Projekt ist ein Teil meiner Vision der Programmierung eines eigenen Fahrgastinformationssystems. Als ersten Schritt habe ich eine Bahnhofsanzeige für einen Bahnhof, nämlich "Frankfurt (Main) Süd" implementiert, dabei können die Daten verwaltet, Fahrten hinzugefügt, gelöscht und die Zwischenhalte eingestellt werden. Mittel- bis langfristig sind noch mehr Funktionen geplant. Unter anderem soll die Bahnhofsanzeige auf bestimmte Gleise individualisierbar gemacht und ein Zufallsgenerator für Verspätungen eingefügt werden. 
+Des Weiteren sollen die Fahrten auf Wochentage anpassbar gemacht werden, sodass es möglich sein soll, einen geänderten Fahrplan zum Beispiel für Wochenendtage zu erstellen.
+
+Mehrere Bahnhöfe soll man auswählen und einen eigenen Liniennetzplan erstellen können.
+
+In regelmäßigen Abständen sind Updates geplant und das Programm soll langfristig als .EXE-Datei angeboten werden.
+
+Doch genug von Träumereien (Träume werden später trotzdem wahr), in den nächsten Abständen geht es detaillierter um eine aktuellere Version.
+
 # Installieren des Projektes in Ihrer IDE:
 
-Um dieses Projekt in Ihrer IDE zu laden und abzuspielen sind mehrere Voraussetzungen nötig, es müssen erstens einige Libraries installiert werden und zweitens benötigt es die richtige Datenbank. Ich erkläre nun nacheinander die Schritte beim Aufsetzen des Programmes.
-Ich benutze als IDE IntelliJ, falls Sie eine andere IDE benutzen ist dies kein größeres Problem, lediglich funktioniert die Integration/ Installation etwas anders.
+Um dieses Projekt in Ihrer IDE zu laden und abzuspielen sind mehrere Voraussetzungen nötig, es müssen erstens einige Libraries installiert werden und zweitens benötigt es die richtige Datenbank. 
+Ich erkläre nun nacheinander die Schritte zum Aufsetzen des Programmes, damit dieses auch auf Ihrem System einwandfrei läuft.
+Ich benutze IntelliJ IDEA als Entwicklungsumgebung, falls Sie eine andere IDE benutzen ist dies kein größeres Problem, lediglich funktioniert die Integration/ Installation ein wenig anders.
 
 ## Integrieren der Java-Libraries
 

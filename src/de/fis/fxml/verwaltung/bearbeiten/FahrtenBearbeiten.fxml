@@ -28,7 +28,7 @@
     </MenuBar>
     <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
           AnchorPane.topAnchor="25.0">
-        <Label fx:id="lbl_title" alignment="CENTER" prefHeight="40.0" prefWidth="600.0" text="Fahrten löschen"
+        <Label fx:id="lbl_title" alignment="CENTER" prefHeight="40.0" prefWidth="600.0" text="Fahrten auswählen oder löschen"
                textAlignment="CENTER">
             <font>
                 <Font name="System Bold" size="20.0"/>

@@ -1,10 +1,8 @@
 package de.fis.controllers.zwischenhalte;
 
-import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import de.fis.model.Unterwegshalte;
+import de.fis.model.Unterwegshalt;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -15,18 +13,18 @@ public class ZwischenhalteController {
 
     private static ObjectMapper objectMapper = new ObjectMapper();
 
-    private static Unterwegshalte[] allConnections;
+    private static Unterwegshalt[] allConnections;
 
 
     public void createList() throws IOException {
         allConnections = objectMapper.readValue(new File(
                         "resources/JSON/routes.json"),
-                Unterwegshalte[].class);
+                Unterwegshalt[].class);
     }
 
 
     public String[] getTripForId(String id) throws IOException {
-        for (Unterwegshalte u : allConnections) {
+        for (Unterwegshalt u : allConnections) {
             if (u.getRouteId().equals(id)) {
                 return u.getRoute();
             }
@@ -34,7 +32,7 @@ public class ZwischenhalteController {
         return new String[0];
     }
 
-    public void addNewJSONEntry(Unterwegshalte routeObject) throws IOException {
+    public void addNewJSONEntry(Unterwegshalt routeObject) throws IOException {
 
         String newEntryJSON = objectMapper.writeValueAsString(routeObject);
         JsonNode allExistingEntries = objectMapper.readTree(new File("resources/JSON/routes.json"));

@@ -2,7 +2,7 @@ package de.fis.controllers.verwaltung.hinzufuegen.routeVerwaltung;
 
 import de.fis.controllers.verwaltung.hinzufuegen.FahrtenhinzufuegenController;
 import de.fis.controllers.zwischenhalte.ZwischenhalteController;
-import de.fis.model.Unterwegshalte;
+import de.fis.model.Unterwegshalt;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -21,11 +21,9 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.Set;
 
 
 public class RouteVerwaltenController extends FahrtenhinzufuegenController implements Initializable {
@@ -71,7 +69,7 @@ public class RouteVerwaltenController extends FahrtenhinzufuegenController imple
         if (!(lbl_routeId.getText().isBlank() || lbl_zielbf.getText().isBlank())) {
             // Datenbank (RouteId -> Ziel wird erstellt)
             dba.createNewRoute(lbl_routeId.getText(), lbl_zielbf.getText());
-            Unterwegshalte zwischenhalte = new Unterwegshalte();
+            Unterwegshalt zwischenhalte = new Unterwegshalt();
 
             // StringArray erzeugen:
             List<String> halteList = new ArrayList<>();

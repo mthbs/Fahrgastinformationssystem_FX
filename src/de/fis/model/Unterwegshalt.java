@@ -3,7 +3,7 @@ package de.fis.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
-public class Unterwegshalte {
+public class Unterwegshalt {
 
     @JsonProperty("route_id")
     private String routeId;

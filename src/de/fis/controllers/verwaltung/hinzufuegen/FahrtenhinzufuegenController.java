@@ -13,10 +13,12 @@ import javafx.scene.control.TextField;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -70,8 +72,8 @@ public class FahrtenhinzufuegenController extends ParentController implements In
 
     private boolean singleTrip = false;
 
-    protected Set<String> allUsedLines = new HashSet<>();
-    protected Set<String> allUsedZiele = new HashSet<>();
+    protected List<String> allUsedLines = new ArrayList<>();
+    protected List<String> allUsedZiele = new ArrayList<>();
 
 
     @Override

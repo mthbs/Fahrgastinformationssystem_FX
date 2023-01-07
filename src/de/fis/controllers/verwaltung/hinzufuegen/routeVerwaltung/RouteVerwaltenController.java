@@ -49,7 +49,7 @@ public class RouteVerwaltenController extends FahrtenhinzufuegenController imple
     @FXML
     private ScrollPane scrollPane;
 
-    private Set<String> alleZiele = new HashSet<>();
+    private List<String> alleZiele = new ArrayList<>();
 
     private int counter = 0;
 

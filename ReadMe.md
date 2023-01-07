@@ -7,7 +7,7 @@ Mehrere Bahnhöfe soll man auswählen und einen eigenen Liniennetzplan erstellen
 
 In regelmäßigen Abständen sind Updates geplant und das Programm soll langfristig als .EXE-Datei angeboten werden.
 
-Doch genug von Träumereien (Träume werden später trotzdem wahr), in den nächsten Abständen geht es detaillierter um eine aktuellere Version.
+Doch genug von Träumereien (Träume werden später trotzdem wahr), in den nächsten Abständen geht es detaillierter um die aktuelle Version.
 
 # Installieren des Projektes in Ihrer IDE:
 

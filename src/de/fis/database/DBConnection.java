@@ -120,18 +120,18 @@ public class DBConnection {
         }
     }
 
-    public Set<String> getAllUsedLines() throws SQLException {
-        Set<String> allUsedLines = new HashSet<>();
-        ResultSet resultSet = statement.executeQuery(" SELECT DISTINCT zugnr FROM activeworkbench.abfahrt ");
+    public List<String> getAllUsedLines() throws SQLException {
+        List<String> allUsedLines = new ArrayList<>();
+        ResultSet resultSet = statement.executeQuery(" SELECT DISTINCT zugnr FROM activeworkbench.abfahrt ORDER BY zugnr ");
         while (resultSet.next()) {
             allUsedLines.add(resultSet.getString("zugnr"));
         }
         return allUsedLines;
     }
 
-    public Set<String> getAllUsedZiele() throws SQLException {
-        Set<String> allUsedZiele = new HashSet<>();
-        ResultSet resultSet = statement.executeQuery(" SELECT DISTINCT halteName FROM activeworkbench.haltepunkt ");
+    public List<String> getAllUsedZiele() throws SQLException {
+        List<String> allUsedZiele = new ArrayList<>();
+        ResultSet resultSet = statement.executeQuery(" SELECT DISTINCT halteName FROM activeworkbench.haltepunkt ORDER BY halteName ");
         while (resultSet.next()) {
             allUsedZiele.add(resultSet.getString("halteName"));
         }

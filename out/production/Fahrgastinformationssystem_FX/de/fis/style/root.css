@@ -33,18 +33,13 @@
     -fx-border-color: #f9f8f8;
 }
 
-.yellowInfo, .button {
+.yellowInfo{
     -fx-background-color: #ffff01;
     -fx-color-label-visible: #000100;
     -fx-text-fill: #000100;
     -fx-text-alignment: center;
 }
 
-.button {
-    -fx-border-color: rgba(249, 248, 248, 0.13);
-    -fx-border-width: 3px;
-    -fx-border-radius: 0%;
-}
 .text-field {
     -fx-border-width: 1px;
     -fx-border-radius: 0%;

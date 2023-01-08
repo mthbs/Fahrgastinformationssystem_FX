@@ -2,11 +2,16 @@ package de.fis.controllers.zwischenhalte;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import de.fis.model.Unterwegshalt;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 
 public class ZwischenhalteController {
@@ -32,16 +37,11 @@ public class ZwischenhalteController {
         return new String[0];
     }
 
-    public void addNewJSONEntry(Unterwegshalt routeObject) throws IOException {
-
-        String newEntryJSON = objectMapper.writeValueAsString(routeObject);
-        JsonNode allExistingEntries = objectMapper.readTree(new File("resources/JSON/routes.json"));
-        String allEntriesJSON = allExistingEntries.toString();
-        allEntriesJSON.lastIndexOf("]");
-        System.out.println(allEntriesJSON);
+    public void addNewJSONEntry(Unterwegshalt neuerHalt) throws IOException {
+        JsonNode text = objectMapper.readTree(new File("resources/JSON/routes.json"));
+        String allEntriesJSON = text.toString();
         StringBuilder sb = new StringBuilder(allEntriesJSON);
-        sb.replace(allEntriesJSON.length()-1,allEntriesJSON.length()-1,"," + newEntryJSON);
-        System.out.println(sb.toString());
+        sb.replace(allEntriesJSON.length()-1,allEntriesJSON.length()-1,"," + objectMapper.writeValueAsString(neuerHalt));
         try (FileWriter writer = new FileWriter("resources/JSON/routes.json")){
             writer.write(sb.toString().replace("[{","[\n{").replace("},{","},\n{"));
         }

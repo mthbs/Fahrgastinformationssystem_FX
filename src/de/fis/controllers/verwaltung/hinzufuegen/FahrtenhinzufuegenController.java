@@ -172,6 +172,7 @@ public class FahrtenhinzufuegenController extends ParentController implements In
             if (dba.routeVorhanden(input_route_id.getText(), input_ziel.getText())) {
                 if (input_zeit_bis.getText().isBlank() || input_zeit_takt.getText().isBlank()) {
                     dba.createNewAbfahrt(input_zeit_von.getText(), input_linie.getText(), input_gleis.getText(), input_route_id.getText());
+                    oeffneBahnhofsanzeige();
                 } else {
                     Time timeVon = new Time(input_zeit_von.getText());
                     Time timeBis = new Time(input_zeit_bis.getText());
@@ -180,6 +181,7 @@ public class FahrtenhinzufuegenController extends ParentController implements In
                         System.out.println("Neue Abfahrt (" + input_linie.getText() + "): " + t);
                         dba.createNewAbfahrt(t.toString(), input_linie.getText(), input_gleis.getText(), input_route_id.getText());
                     }
+                    oeffneBahnhofsanzeige();
                 }
             } else { // Route ist in Tabelle route nicht vorhanden
                 oeffneZuordnungBestaetigen(input_route_id.getText(), input_ziel.getText());

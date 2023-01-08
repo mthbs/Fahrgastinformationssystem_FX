@@ -14,6 +14,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -76,26 +77,25 @@ public class RouteVerwaltenController extends FahrtenhinzufuegenController imple
             for (int i = 1; i <= counter; i++) {
                 TextField temp = textFieldIdMap.get("input_ziel" + i);
                 if (!(temp.getText().isBlank() || temp.getText().equals("."))) {
-                    System.out.println("valid: \t" + temp.getText());
                     dba.createZielIfNotExists(temp.getText());
                     halteList.add(temp.getText());
                 }
-            }
-            for (String s : halteList) {
-                System.out.println(s);
             }
 
             zwischenhalte.setValues(lbl_routeId.getText(), lbl_zielbf.getText(), halteList.toArray(new String[0]));
             ZwischenhalteController control = new ZwischenhalteController();
             control.addNewJSONEntry(zwischenhalte);
         }
-        oeffneFahrtenhinzufuegen();
+        closeCurrentStage();
+
     }
 
     @FXML
     private void btn_cancelTapped() throws MalformedURLException {
-        oeffneFahrtenhinzufuegen();
+        closeCurrentStage();
     }
+
+
 
     private void btn_plusClicked() {
         renderRow();

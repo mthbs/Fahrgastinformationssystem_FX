@@ -40,12 +40,8 @@ public class ParentController {
         doOpenCloseOperations(fxmlLoader);
     }
 
-    protected void oeffneBahnhofsanzeige() throws MalformedURLException {
-        oeffneBahnhofsanzeige(new ActionEvent());
-    }
-
     @FXML
-    protected void oeffneBahnhofsanzeige(ActionEvent event) throws MalformedURLException {
+    protected void oeffneBahnhofsanzeige() throws MalformedURLException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(new File("src/de/fis/fxml/bahnhofsanzeige/Bahnhofsanzeige.fxml").toURI().toURL());
         doOpenCloseOperations(fxmlLoader);
@@ -82,8 +78,6 @@ public class ParentController {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(cssFile.toURI().toURL().toExternalForm());
         Stage openStage = new Stage();
-        Stage closeStage = (Stage) lbl_signature.getScene().getWindow();
-        closeStage.close();
         openStage.setScene(scene);
         openStage.show();
     }
@@ -99,10 +93,14 @@ public class ParentController {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(cssFile.toURI().toURL().toExternalForm());
         Stage openStage = new Stage();
-        Stage closeStage = (Stage) lbl_signature.getScene().getWindow();
-        closeStage.close();
+        closeCurrentStage();
         openStage.setScene(scene);
         openStage.show();
+    }
+
+    protected void closeCurrentStage() {
+        Stage closeStage = (Stage) lbl_signature.getScene().getWindow();
+        closeStage.close();
     }
 
 }

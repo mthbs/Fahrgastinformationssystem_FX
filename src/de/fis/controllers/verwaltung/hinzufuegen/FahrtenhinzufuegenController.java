@@ -183,7 +183,7 @@ public class FahrtenhinzufuegenController extends ParentController implements In
                     }
                     oeffneBahnhofsanzeige();
                 }
-            } else { // Route ist in Tabelle route nicht vorhanden
+            } else { // Wenn Route in Tabelle route nicht vorhanden ist
                 oeffneZuordnungBestaetigen(input_route_id.getText(), input_ziel.getText());
             }
         } else {

@@ -21,9 +21,6 @@
             <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenhinzufuegen" text="Neue Fahrten hinzufügen"/>
             <MenuItem mnemonicParsing="false" onAction="#oeffneFahrtenBearbeiten" text="Fahrten verwalten"/>
         </Menu>
-        <Menu mnemonicParsing="false" text="Externe Programme">
-            <MenuItem mnemonicParsing="false" onAction="#oeffneVideoplayer" text="Videoplayer"/>
-        </Menu>
     </MenuBar>
     <VBox maxHeight="700.0" maxWidth="700.0" minHeight="700.0" minWidth="700.0" prefHeight="700.0" prefWidth="700.0"
           AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">

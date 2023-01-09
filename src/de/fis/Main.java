@@ -1,6 +1,5 @@
 package de.fis;
 
-import de.fis.controllers.ParentController;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -22,13 +21,11 @@ public class Main extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("fxml/bahnhofsanzeige/Bahnhofsanzeige.fxml"));
             //            Parent root = FXMLLoader.load(getClass().getResource("fxml/verwaltung/hinzufuegen/Fahrtenhinzufuegen.fxml"));
             //            Parent root = FXMLLoader.load(getClass().getResource("fxml/verwaltung/bearbeiten/Fahrtenverwaltung.fxml"));
-            //            Parent root = FXMLLoader.load(getClass().getResource("fxml/videoplayer/Videoplayer.fxml"));
 //            Parent root = FXMLLoader.load(getClass().getResource("src/de/fis/fxml/verwaltung/hinzufuegen/routeVerwaltung" +
 //                    "/RouteVerwalten.fxml"));
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("style/root.css").toExternalForm());
-            videoplayerAddon(scene, stage);
-
+//            setFullscreenOption(scene, stage);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
@@ -41,7 +38,7 @@ public class Main extends Application {
         launch(args);
     }
 
-    private void videoplayerAddon(Scene scene, final Stage stage) {
+    private void setFullscreenOption(Scene scene, final Stage stage) {
         scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {

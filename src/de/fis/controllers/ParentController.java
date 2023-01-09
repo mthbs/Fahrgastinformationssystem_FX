@@ -48,13 +48,6 @@ public class ParentController {
     }
 
     @FXML
-    protected void oeffneVideoplayer() throws MalformedURLException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(new File("src/de/fis/fxml/videoplayer/Videoplayer.fxml").toURI().toURL());
-        doOpenCloseOperations(fxmlLoader);
-    }
-
-    @FXML
     protected void oeffneFXML(String path) throws MalformedURLException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(new File(path).toURI().toURL());

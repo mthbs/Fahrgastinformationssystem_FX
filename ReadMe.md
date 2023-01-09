@@ -11,6 +11,10 @@ Doch genug von Träumereien (Träume werden später trotzdem wahr), in den näch
 
 # Installieren des Projektes in Ihrer IDE:
 
+**UPDATE: Externe Libraries wurden dem lib-Ordner hinzugefügt. Sie brauchen diese nur noch dem Compiler mitzuteilen, indem sie die lib-Ordner oder die jar-Dateien als Classpath hinterlegen.**
+
+
+
 Um dieses Projekt in Ihrer IDE zu laden und abzuspielen sind mehrere Voraussetzungen nötig, es müssen erstens einige Libraries installiert werden und zweitens benötigt es die richtige Datenbank. 
 Ich erkläre nun nacheinander die Schritte zum Aufsetzen des Programmes, damit dieses auch auf Ihrem System einwandfrei läuft.
 Ich benutze IntelliJ IDEA als Entwicklungsumgebung, falls Sie eine andere IDE benutzen ist dies kein größeres Problem, lediglich funktioniert die Integration/ Installation ein wenig anders.
